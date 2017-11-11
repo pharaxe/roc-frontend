@@ -1,18 +1,36 @@
 import { BrowserModule } from '@angular/platform-browser';
+import {HttpClientModule} from '@angular/common/http';
+import {FormsModule} from '@angular/forms';
 import { NgModule } from '@angular/core';
 
 
 import { AppComponent } from './app.component';
-
+import { HeroesComponent } from './heroes/heroes.component';
+import { MessagesComponent } from './messages/messages.component';
+import { MessageService } from './message.service';
+import { AppRoutingModule } from './/app-routing.module';
+import { SearchComponent } from './search/search.component';
+import { CardService } from './card.service';
+import { CardDetailComponent } from './card-detail/card-detail.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
+import { CardSearchComponent } from './card-search/card-search.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    SearchComponent,
+    MessagesComponent,
+    CardDetailComponent,
+    DashboardComponent,
+    CardSearchComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    AppRoutingModule,
+    HttpClientModule,
+    FormsModule
   ],
-  providers: [],
+  providers: [CardService, MessageService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

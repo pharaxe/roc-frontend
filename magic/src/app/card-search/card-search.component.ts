@@ -8,7 +8,6 @@ import {
    debounceTime, distinctUntilChanged, switchMap
  } from 'rxjs/operators';
 
- import {map} from 'rxjs/operators';
 
 import { Card } from '../card';
 import { CardService } from '../card.service';

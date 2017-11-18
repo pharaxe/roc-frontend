@@ -1,6 +1,7 @@
 <div class="card-detail" *ngIf="card; else elseBlock">
 
-  <img class="card-art" src="{{card.url}}" />
+  <img class="card-art" src="{{card.url}}" 
+  onError="this.src='http://bensweedler.com/art/cardback.jpg';" />
   <span>Card ID is: {{card.id}}</span>
 
 </div>

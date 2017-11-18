@@ -5,11 +5,9 @@ import { NgModule } from '@angular/core';
 
 
 import { AppComponent } from './app.component';
-import { HeroesComponent } from './heroes/heroes.component';
 import { MessagesComponent } from './messages/messages.component';
 import { MessageService } from './message.service';
 import { AppRoutingModule } from './/app-routing.module';
-import { SearchComponent } from './search/search.component';
 import { CardService } from './card.service';
 import { CardDetailComponent } from './card-detail/card-detail.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
@@ -19,7 +17,6 @@ import { CardSelectComponent } from './card-select/card-select.component';
 @NgModule({
   declarations: [
     AppComponent,
-    SearchComponent,
     MessagesComponent,
     CardDetailComponent,
     DashboardComponent,

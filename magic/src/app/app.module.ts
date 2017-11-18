@@ -14,6 +14,7 @@ import { CardService } from './card.service';
 import { CardDetailComponent } from './card-detail/card-detail.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { CardSearchComponent } from './card-search/card-search.component';
+import { CardSelectComponent } from './card-select/card-select.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { CardSearchComponent } from './card-search/card-search.component';
     MessagesComponent,
     CardDetailComponent,
     DashboardComponent,
-    CardSearchComponent
+    CardSearchComponent,
+    CardSelectComponent
   ],
   imports: [
     BrowserModule,

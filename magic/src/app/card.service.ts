@@ -11,7 +11,7 @@ import { MessageService } from './message.service';
 
 @Injectable()
 export class CardService {
-private url = 'http://www.bensweedler.com/draft/web/card';
+private url = 'http://api.localhost/app.php/card';
 private myCards: Card[];
 private cardCache: { [id: number] : Card; };
 private searchResults: Card[];

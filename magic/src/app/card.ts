@@ -4,4 +4,3 @@ export class Card {
    url: string;
    multiverseid: number;
 }
-

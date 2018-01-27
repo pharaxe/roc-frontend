@@ -14,6 +14,7 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { CardSearchComponent } from './card-search/card-search.component';
 import { CardSelectComponent } from './card-select/card-select.component';
 import { ArenaComponent } from './arena/arena.component';
+import { ArenaService } from './arena.service';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,7 @@ import { ArenaComponent } from './arena/arena.component';
     HttpClientModule,
     FormsModule
   ],
-  providers: [CardService, MessageService],
+  providers: [ArenaService, CardService, MessageService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

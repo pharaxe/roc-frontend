@@ -1,10 +1,13 @@
 import { Component, OnInit } from '@angular/core';
-import {CardDetailComponent} from '../card-detail/card-detail.component';
+
+import { Card }         from '../card';
+import { CardService }  from '../card.service';
+import { ArenaService }  from '../arena.service';
 
 @Component({
   selector: 'app-arena',
   templateUrl: './arena.component.html',
-  styleUrls: ['./arena.component.css']
+  styleUrls: ['./arena.component.css'],
 })
 export class ArenaComponent implements OnInit {
 

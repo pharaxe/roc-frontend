@@ -7,7 +7,7 @@ import { Card } from '../card';
 
 export class MockArenaService { 
    getPack(): Observable<Card[]> {
-      return null;
+      return of(pack);
    }
 
    getCard(id: number): Observable<Card> {

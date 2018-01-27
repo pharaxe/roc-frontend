@@ -16,4 +16,12 @@ export class ArenaService {
 
    constructor(private http: HttpClient, private messageService: MessageService) { 
    }
+
+   getPack(): Observable<Card[]> {
+      return null;
+   }
+
+   getCard(id: number): Observable<Card> {
+    return null;
+   }
 }

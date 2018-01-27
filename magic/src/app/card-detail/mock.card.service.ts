@@ -11,13 +11,29 @@ export class MockCardService {
    }
 
    getCard(id: number): Observable<Card> {
-      return of(fireball);
+      console.log(id);
+      console.log(cards[id]);
+      return of(cards[id]);
    }
 }
 
-export const fireball = {
-   "name": "Fireball",
-   "id": 61590,
-   "multiverseid": 205223,
-   "url": "http://bensweedler.com/art/205223.jpg"
-}
+export const cards = {
+   205223:   {
+      "name": "Fireball",
+      "id": 61590,
+      "multiverseid": 205223,
+      "url": "http://bensweedler.com/art/205223.jpg"
+   },
+   83731: {
+      "id": 64723,
+      "multiverseid": 83731,
+      "name": "Watery Grave",
+      "url": "http://bensweedler.com/art/83731.jpg"
+   },
+   382374: {
+		"id": 65622,
+		"multiverseid": 382374,
+		"name": "Squirrel Nest",
+		"url": "http://bensweedler.com/art/382374.jpg"
+   }
+};

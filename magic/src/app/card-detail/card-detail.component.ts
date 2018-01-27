@@ -1,6 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
-import { Location } from '@angular/common';
+//import { ActivatedRoute } from '@angular/router';
+//import { Location } from '@angular/common';
 
 import { Card }         from '../card';
 import { CardService }  from '../card.service';
@@ -12,11 +12,12 @@ import { CardService }  from '../card.service';
 })
 export class CardDetailComponent implements OnInit {
   @Input() card: Card;
+  @Input() testMessage: string;
 
   constructor(
-    private route: ActivatedRoute,
+     //private route: ActivatedRoute,
     private CardService: CardService,
-    private location: Location
+     //private location: Location
   ) {}
 
   ngOnInit(): void {
@@ -24,21 +25,11 @@ export class CardDetailComponent implements OnInit {
   }
 
   getCard(): void {
-    const id = +this.route.snapshot.paramMap.get('id');
+    const id = 1;
 
    console.log("card id is: " + id);
     this.CardService.getCard(id)
       .subscribe(card => this.card = card);
   }
 
-  goBack(): void {
-    this.location.back();
-  }
 }
-
-
-/*
-Copyright 2017 Google Inc. All Rights Reserved.
-Use of this source code is governed by an MIT-style license that
-can be found in the LICENSE file at http://angular.io/license
-*/

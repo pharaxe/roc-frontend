@@ -13,6 +13,7 @@ import { CardDetailComponent } from './card-detail/card-detail.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { CardSearchComponent } from './card-search/card-search.component';
 import { CardSelectComponent } from './card-select/card-select.component';
+import { ArenaComponent } from './arena/arena.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { CardSelectComponent } from './card-select/card-select.component';
     CardDetailComponent,
     DashboardComponent,
     CardSearchComponent,
-    CardSelectComponent
+    CardSelectComponent,
+    ArenaComponent
   ],
   imports: [
     BrowserModule,

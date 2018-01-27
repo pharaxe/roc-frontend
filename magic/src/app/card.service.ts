@@ -11,16 +11,16 @@ import { MessageService } from './message.service';
 
 @Injectable()
 export class CardService {
-private url = 'http://api.localhost/app.php/card';
-private myCards: Card[];
-private cardCache: { [id: number] : Card; };
-private searchResults: Card[];
+   private url = 'http://localhost/draft/web/app_dev.php/api/cards';
+   private myCards: Card[];
+   private cardCache: { [id: number] : Card; };
+   private searchResults: Card[];
 
    constructor(private http: HttpClient, private messageService: MessageService) { 
 
       this.myCards = CARDS;
       this.cardCache = { };
-}
+   }
 
    getCards(): Observable<Card[]> {
       this.messageService.add('CardService: fetched cards');

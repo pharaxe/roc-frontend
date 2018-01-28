@@ -1,14 +1,15 @@
 import {sandboxOf} from 'angular-playground';
 import {ViewContainerRef} from '@angular/core'
-import {ArenaComponent} from './arena.component';
+import {BoosterPackComponent} from './booster-pack.component';
 
 import { Card }         from '../card';
 import {CardDetailComponent} from '../card-detail/card-detail.component';
 import { CardService }  from '../card.service';
 import { ArenaService }  from '../arena.service';
-import { ArenaDirective }  from './arena.directive';
+import { ArenaDirective }  from '../arena/arena.directive';
+import { DraftableDirective} from '../draftable.directive';
 
-import { MockArenaService } from './mock.arena.service';
+import { MockBasicBoosterPackService } from './mock.basic-booster-pack.service';
 import { MockCardService } from '../card-detail/mock.card.service';
 
 
@@ -16,17 +17,17 @@ const sandboxConfig = {
    imports: [],
    providers: [
    { provide: ViewContainerRef, useClass: ViewContainerRef },
-   { provide: ArenaService, useClass: MockArenaService },
+   { provide: ArenaService, useClass: MockBasicBoosterPackService },
    { provide: CardService, useClass: MockCardService },
    ],
    declarations: [
       CardDetailComponent,
-      ArenaDirective
+      DraftableDirective,
    ],
-   label: 'Arena Component'
+   label: 'Booster Pack'
 }; 
 
-export default sandboxOf(ArenaComponent, sandboxConfig)
+export default sandboxOf(BoosterPackComponent, sandboxConfig)
    .add('basic pack', {
-      template: `<app-arena></app-arena>`
+      template: `<app-booster-pack></app-booster-pack>`
    });

@@ -26,11 +26,10 @@ export class ArenaService {
    }
 
    trackByFn(index, item) {
-      console.log(item);
       return index;
    }
 
-   sendPick(): void {
+   sendPick(card): void {
 
    }
 }

@@ -1,0 +1,4 @@
+Arena Works!
+<p>
+<app-card-detail *ngFor="let card of pack$ | async" appDraftable="card" (picked)="draftCard($event)" [card]="card"></app-card-detail>
+</p>

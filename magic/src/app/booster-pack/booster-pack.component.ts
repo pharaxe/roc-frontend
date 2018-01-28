@@ -5,18 +5,19 @@ import { of }         from 'rxjs/observable/of';
 import { Card }         from '../card';
 import { CardService }  from '../card.service';
 import { ArenaService }  from '../arena.service';
-import { ArenaDirective} from './arena.directive';
+import { ArenaDirective} from '../arena/arena.directive';
+import { DraftableDirective} from '../draftable.directive';
 
 import {CardDetailComponent} from '../card-detail/card-detail.component';
 
 @Component({
-  selector: 'app-arena',
-  templateUrl: './arena.component.html',
-  styleUrls: ['./arena.component.css'],
+  selector: 'app-booster-pack',
+  templateUrl: './booster-pack.component.html',
+  styleUrls: ['./booster-pack.component.css'],
   entryComponents: [CardDetailComponent],
 })
-export class ArenaComponent implements OnInit {
-   //@ViewChildren(CardDetailComponent) choices: QueryList<CardDetailComponent>;
+export class BoosterPackComponent implements OnInit {
+   @ViewChildren(CardDetailComponent) choices: QueryList<CardDetailComponent>;
    @ViewChild(ArenaDirective) choiceHost: ArenaDirective;
    private pack: Card[];
    public pack$: Observable<Card[]>;
@@ -36,6 +37,14 @@ export class ArenaComponent implements OnInit {
    }
 
    ngAfterViewInit() {
+      this.choices.toArray().forEach((cardComponent) => {
+         //cardComponent.test(this.ArenaService)
+         //item.someOutput.subscribe(...);
+      });
+   }
+
+   draftCard($event) {
+      this.ArenaService.sendPick($event);
    }
 
    createCardComponent(card, index) {
@@ -43,11 +52,5 @@ export class ArenaComponent implements OnInit {
 
    assignCardToChoiceSlot(cardInstance, index) {
       cardInstance.observe((this.pack[index]));
-   }
-
-   onClickMe() {
-      console.log('clicked');
-      this.ArenaService.sendPick();
-      console.log(this.pack);
    }
 }

@@ -13,9 +13,10 @@ import { CardDetailComponent } from './card-detail/card-detail.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { CardSearchComponent } from './card-search/card-search.component';
 import { CardSelectComponent } from './card-select/card-select.component';
-import { ArenaComponent } from './arena/arena.component';
+import { BoosterPackComponent } from './booster-pack/booster-pack.component';
 import { ArenaService } from './arena.service';
 import { ArenaDirective } from './arena/arena.directive';
+import { DraftableDirective } from './draftable.directive';
 
 @NgModule({
    declarations: [
@@ -25,8 +26,9 @@ import { ArenaDirective } from './arena/arena.directive';
       DashboardComponent,
       CardSearchComponent,
       CardSelectComponent,
-      ArenaComponent,
-      ArenaDirective
+      BoosterPackComponent,
+      ArenaDirective,
+      DraftableDirective
    ],
    imports: [
       BrowserModule,

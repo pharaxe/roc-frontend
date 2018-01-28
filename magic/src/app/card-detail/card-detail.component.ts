@@ -1,8 +1,9 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter, HostListener } from '@angular/core';
 //import { ActivatedRoute } from '@angular/router';
 //import { Location } from '@angular/common';
 import { Observable } from "rxjs/Observable";
 import { of } from 'rxjs/observable/of';
+
 
 import { Card }         from '../card';
 import { CardService }  from '../card.service';
@@ -13,8 +14,8 @@ import { CardService }  from '../card.service';
 	styleUrls: [ './card-detail.component.css' ]
 })
 export class CardDetailComponent implements OnInit {
-	@Input() card: Card;
-	@Input() id: number;
+	@Input() public card: Card;
+	@Input() public id: number;
 
 	constructor(
 		//private route: ActivatedRoute,
@@ -32,7 +33,6 @@ export class CardDetailComponent implements OnInit {
 	}
 
 	observe(card): void {
-		console.log(card);
 		of(card).subscribe(card => this.card = card);
 	}
 

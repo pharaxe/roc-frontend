@@ -5,7 +5,7 @@ import { ActivatedRoute } from '@angular/router';
 
 import { Card } from '../card';
 
-export class MockArenaService { 
+export class MockBasicBoosterPackService { 
    pack: Card[];
    onSecondPack: boolean = false;
 
@@ -21,10 +21,7 @@ export class MockArenaService {
       return null;
    }
 
-   sendPick() {
-      console.log(this.pack);
-      console.log(pack1);
-      console.log(pack2);
+   sendPick(card) {
       this.pack.forEach(function(card, index) {
          if (this.onSecondPack) {
             this.pack[index] = pack1[index];

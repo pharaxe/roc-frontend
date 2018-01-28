@@ -1,4 +1,5 @@
 Arena Works!
-<div id="booster-pack">
-<ng-template choices-host> </ng-template>
-<div>
+
+<p>
+<app-card-detail *ngFor="let card of pack;trackBy:ArenaService.trackByFn" [card]="card"></app-card-detail>
+</p>

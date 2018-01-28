@@ -32,7 +32,7 @@ export class ArenaComponent implements OnInit {
    }
 
    ngAfterViewInit() {
-      this.pack.forEach(this.createCardComponent.bind(this));
+      //this.pack.forEach(this.createCardComponent.bind(this));
       //(<CardDetailComponent>componentRef.instance).card = the card you want to place in there
       /*
       */
@@ -40,14 +40,19 @@ export class ArenaComponent implements OnInit {
    }
 
    createCardComponent(card, index) {
+      /*
       let componentFactory = this.resolver.resolveComponentFactory(CardDetailComponent);
       console.log(componentFactory);
       console.log(this.choiceHost);
       let viewContainerRef = this.choiceHost.viewContainerRef;
       let componentRef = viewContainerRef.createComponent(componentFactory);
-      (<CardDetailComponent>componentRef.instance).observe(card);
+      //(<CardDetailComponent>componentRef.instance).observe(card);
+       */
    }
 
+   trackByFn(index, item) {
+      return index;
+   }
       /*
    createCardComponent() {
       const factory: ComponentFactory = this.resolver.resolveComponentFactory(CardDetailComponent);

@@ -1,5 +1,6 @@
 Arena Works!
 
+<button (click)="onClickMe()">Click me!</button>
 <p>
-<app-card-detail *ngFor="let card of pack;trackBy:ArenaService.trackByFn" [card]="card"></app-card-detail>
+<app-card-detail *ngFor="let card of pack$ | async" [card]="card"></app-card-detail>
 </p>

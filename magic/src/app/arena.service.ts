@@ -24,4 +24,13 @@ export class ArenaService {
    getCard(id: number): Observable<Card> {
     return null;
    }
+
+   trackByFn(index, item) {
+      console.log(item);
+      return index;
+   }
+
+   sendPick(): void {
+
+   }
 }

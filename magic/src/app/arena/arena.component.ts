@@ -1,6 +1,7 @@
 import { Component, OnInit, Input, ViewChildren, ViewChild, QueryList } from '@angular/core';
 import { ComponentFactoryResolver, ViewContainerRef} from '@angular/core';
 import { Observable } from "rxjs/Observable";
+import { of }         from 'rxjs/observable/of';
 import { Card }         from '../card';
 import { CardService }  from '../card.service';
 import { ArenaService }  from '../arena.service';
@@ -18,6 +19,7 @@ export class ArenaComponent implements OnInit {
    //@ViewChildren(CardDetailComponent) choices: QueryList<CardDetailComponent>;
    @ViewChild(ArenaDirective) choiceHost: ArenaDirective;
    private pack: Card[];
+   public pack$: Observable<Card[]>;
 
    constructor(
       private resolver: ComponentFactoryResolver,
@@ -29,42 +31,23 @@ export class ArenaComponent implements OnInit {
    ngOnInit() {
       this.ArenaService.getPack()
          .subscribe(pack => this.pack = pack);
+
+      this.pack$ = of(this.pack);
    }
 
    ngAfterViewInit() {
-      //this.pack.forEach(this.createCardComponent.bind(this));
-      //(<CardDetailComponent>componentRef.instance).card = the card you want to place in there
-      /*
-      */
-      //this.choices.forEach(this.assignCardToChoiceSlot.bind(this));
    }
 
    createCardComponent(card, index) {
-      /*
-      let componentFactory = this.resolver.resolveComponentFactory(CardDetailComponent);
-      console.log(componentFactory);
-      console.log(this.choiceHost);
-      let viewContainerRef = this.choiceHost.viewContainerRef;
-      let componentRef = viewContainerRef.createComponent(componentFactory);
-      //(<CardDetailComponent>componentRef.instance).observe(card);
-       */
-   }
-
-   trackByFn(index, item) {
-      return index;
-   }
-      /*
-   createCardComponent() {
-      const factory: ComponentFactory = this.resolver.resolveComponentFactory(CardDetailComponent);
-      this.componentRef = this.container.createComponent(factory);
-   }
-       */
-
-   ngOnDestroy() {
-      //this.componentRef.destroy();
    }
 
    assignCardToChoiceSlot(cardInstance, index) {
       cardInstance.observe((this.pack[index]));
+   }
+
+   onClickMe() {
+      console.log('clicked');
+      this.ArenaService.sendPick();
+      console.log(this.pack);
    }
 }

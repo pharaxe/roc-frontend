@@ -28,10 +28,13 @@ export class BoosterPackComponent implements OnInit {
    { }
 
    ngOnInit() {
+      this.pack$ = this.ArenaService.getPack();
+      /*
       this.ArenaService.getPack()
          .subscribe(pack => this.pack = pack);
 
       this.pack$ = of(this.pack);
+       */
    }
 
    ngAfterViewInit() {
@@ -42,13 +45,7 @@ export class BoosterPackComponent implements OnInit {
    }
 
    draftCard($event) {
+      console.log($event);
       this.ArenaService.sendPick($event);
-   }
-
-   createCardComponent(card, index) {
-   }
-
-   assignCardToChoiceSlot(cardInstance, index) {
-      cardInstance.observe((this.pack[index]));
    }
 }

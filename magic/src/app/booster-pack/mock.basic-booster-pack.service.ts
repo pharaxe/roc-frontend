@@ -17,10 +17,6 @@ export class MockBasicBoosterPackService {
       return of(this.pack);
    }
 
-   getCard(id: number): Observable<Card> {
-      return null;
-   }
-
    sendPick() {
       this.pack.forEach(function(card, index) {
          if (this.onSecondPack) {

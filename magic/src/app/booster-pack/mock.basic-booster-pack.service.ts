@@ -35,8 +35,6 @@ export class MockBasicBoosterPackService {
       } else {
          this.onSecondPack = true;
       }
-
-
    }
 }
 

@@ -10,13 +10,14 @@ import { ArenaDirective }  from '../arena/arena.directive';
 import { DraftableDirective} from '../draftable.directive';
 
 import { MockBasicBoosterPackService } from './mock.basic-booster-pack.service';
+import { MockRandomBoosterPackService } from './mock.random-booster-pack.service';
 import { MockCardService } from '../card-detail/mock.card.service';
-
+import {HttpClient, HttpHeaders} from '@angular/common/http';
+import {HttpClientModule} from '@angular/common/http';
 
 const sandboxConfig = {
-   imports: [],
+   imports: [HttpClientModule],
    providers: [
-   { provide: ViewContainerRef, useClass: ViewContainerRef },
    { provide: ArenaService, useClass: MockBasicBoosterPackService },
    { provide: CardService, useClass: MockCardService },
    ],
@@ -28,6 +29,12 @@ const sandboxConfig = {
 }; 
 
 export default sandboxOf(BoosterPackComponent, sandboxConfig)
-   .add('basic pack', {
+   .add('basic pack switching', {
       template: `<app-booster-pack></app-booster-pack>`
+   })
+   .add('random packs', {
+      template: `<app-booster-pack></app-booster-pack>`,
+      providers:
+      [{provide: ArenaService, useClass: MockRandomBoosterPackService},
+      ]
    });

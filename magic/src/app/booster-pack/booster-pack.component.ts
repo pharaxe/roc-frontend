@@ -1,5 +1,4 @@
 import { Component, OnInit, Input, ViewChildren, ViewChild, QueryList } from '@angular/core';
-import { ComponentFactoryResolver, ViewContainerRef} from '@angular/core';
 import { Observable } from "rxjs/Observable";
 import { of }         from 'rxjs/observable/of';
 import { Card }         from '../card';
@@ -14,7 +13,7 @@ import {CardDetailComponent} from '../card-detail/card-detail.component';
   selector: 'app-booster-pack',
   templateUrl: './booster-pack.component.html',
   styleUrls: ['./booster-pack.component.css'],
-  entryComponents: [CardDetailComponent],
+  entryComponents: [CardDetailComponent]
 })
 export class BoosterPackComponent implements OnInit {
    @ViewChildren(CardDetailComponent) choices: QueryList<CardDetailComponent>;
@@ -23,7 +22,6 @@ export class BoosterPackComponent implements OnInit {
    public pack$: Observable<Card[]>;
 
    constructor(
-      private resolver: ComponentFactoryResolver,
       private CardService: CardService,
       private ArenaService: ArenaService,
    )

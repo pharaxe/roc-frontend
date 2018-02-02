@@ -10,27 +10,23 @@ export class MockBasicBoosterPackService {
    onSecondPack: boolean = false;
 
    getPack(): Observable<Card[]> {
-      this.pack = [];
+      this.pack = Object.assign([], pack1);
+      /*
       pack1.forEach(function(card, index) {
          this.pack[index] = card;
       }.bind(this));
+       */
       return of(this.pack);
    }
 
    sendPick() {
-      this.pack.forEach(function(card, index) {
-         if (this.onSecondPack) {
-            this.pack[index] = pack1[index];
-         } else {
-            this.pack[index] = pack2[index];
-         }
-      }.bind(this));
-
       if (this.onSecondPack) {
-         this.onSecondPack = false;
+         Object.assign(this.pack, pack1);
       } else {
-         this.onSecondPack = true;
+         Object.assign(this.pack, pack2);
       }
+
+      this.onSecondPack = !this.onSecondPack;
    }
 }
 

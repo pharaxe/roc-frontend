@@ -19,7 +19,7 @@ export class BoosterPackComponent implements OnInit {
    @ViewChildren(CardDetailComponent) choices: QueryList<CardDetailComponent>;
    @ViewChild(ArenaDirective) choiceHost: ArenaDirective;
    private pack: Card[];
-   public pack$: Observable<Card[]>;
+   private pack$: Observable<Card[]>;
 
    constructor(
       private CardService: CardService,
@@ -28,7 +28,8 @@ export class BoosterPackComponent implements OnInit {
    { }
 
    ngOnInit() {
-      this.pack$ = this.ArenaService.getPack();
+      //this.pack$ = this.ArenaService.getPack();
+      this.ArenaService.getPack().subscribe(pack => this.pack = pack);
       /*
       this.ArenaService.getPack()
          .subscribe(pack => this.pack = pack);
@@ -38,10 +39,6 @@ export class BoosterPackComponent implements OnInit {
    }
 
    ngAfterViewInit() {
-      this.choices.toArray().forEach((cardComponent) => {
-         //cardComponent.test(this.ArenaService)
-         //item.someOutput.subscribe(...);
-      });
    }
 
    draftCard($event) {

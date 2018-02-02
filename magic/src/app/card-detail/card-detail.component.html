@@ -1,5 +1,5 @@
-<div class="card-detail" *ngIf="card; else elseBlock">
-  <img class="card-art" src="{{card.url}}" 
+<div class="card-detail" *ngIf="card; let card else elseBlock">
+  <img class="card-art" [src]="card.url" 
   onError="this.src='http://bensweedler.com/art/cardback.jpg';" />
 </div>
 

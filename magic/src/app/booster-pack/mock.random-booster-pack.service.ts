@@ -25,19 +25,23 @@ export class MockRandomBoosterPackService {
       return of(this.pack);
    }
 
-   getRandomCards(): Observable<Card[]> {
-      return this.http
+   getRandomCards(): void {
+      this.http
         .get<Card[]>(this.url).subscribe(response => this.copyCards(response));
    }
 
    copyCards(newCards: Card[]): void {
       console.log(newCards);
+      Object.assign(this.pack, newCards);
+      /*
       newCards.forEach(function(card, index) {
          this.pack[index] = card;
       }.bind(this));
+       */
    }
 
    sendPick(card) {
+      console.log(card.url);
       this.getRandomCards();
    }
 }

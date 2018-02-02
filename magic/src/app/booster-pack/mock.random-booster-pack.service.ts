@@ -31,7 +31,6 @@ export class MockRandomBoosterPackService {
    }
 
    copyCards(newCards: Card[]): void {
-      console.log(newCards);
       Object.assign(this.pack, newCards);
       /*
       newCards.forEach(function(card, index) {
@@ -41,7 +40,6 @@ export class MockRandomBoosterPackService {
    }
 
    sendPick(card) {
-      console.log(card.url);
       this.getRandomCards();
    }
 }

@@ -4,22 +4,20 @@ import { Type } from "@angular/core";
 import { ActivatedRoute } from '@angular/router';
 
 import { Card } from '../card';
+import {Injectable} from '@angular/core'
 
+@Injectable()
 export class MockBasicBoosterPackService { 
    pack: Card[];
    onSecondPack: boolean = false;
 
    getPack(): Observable<Card[]> {
       this.pack = Object.assign([], pack1);
-      /*
-      pack1.forEach(function(card, index) {
-         this.pack[index] = card;
-      }.bind(this));
-       */
       return of(this.pack);
    }
 
-   sendPick() {
+   sendPick(card) {
+      // simply flip between two predefined packs.
       if (this.onSecondPack) {
          Object.assign(this.pack, pack1);
       } else {

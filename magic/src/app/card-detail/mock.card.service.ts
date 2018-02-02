@@ -11,8 +11,6 @@ export class MockCardService {
    }
 
    getCard(id: number): Observable<Card> {
-      console.log(id);
-      console.log(cards[id]);
       return of(cards[id]);
    }
 }

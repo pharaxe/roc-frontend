@@ -2,21 +2,19 @@ import { Input, Output, HostListener, HostBinding, Directive, EventEmitter, Elem
 
 import {Card} from './card';
 
+import {ArenaService} from './arena.service';
+
 @Directive({
   selector: '[appDraftable]'
 })
 export class DraftableDirective {
-   constructor(el: ElementRef) {
-      //el.nativeElement.style.display = 'block';
+   constructor(private arenaService:ArenaService) {
    }
 
    @Input() card: Card;
-   @Output() picked: EventEmitter<Card> = new EventEmitter<Card>();
-
-   @HostBinding('style.backgroundColor') bgColor: string;
 
    @HostListener('click', ['$event'])
    clicked() {
-      this.picked.emit(this.card);
+      this.arenaService.sendPick(this.card);
    }
 }

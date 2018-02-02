@@ -4,7 +4,6 @@ import { of }         from 'rxjs/observable/of';
 import { Card }         from '../card';
 import { CardService }  from '../card.service';
 import { ArenaService }  from '../arena.service';
-import { ArenaDirective} from '../arena/arena.directive';
 import { DraftableDirective} from '../draftable.directive';
 
 import {CardDetailComponent} from '../card-detail/card-detail.component';
@@ -13,11 +12,9 @@ import {CardDetailComponent} from '../card-detail/card-detail.component';
   selector: 'app-booster-pack',
   templateUrl: './booster-pack.component.html',
   styleUrls: ['./booster-pack.component.css'],
-  entryComponents: [CardDetailComponent]
 })
 export class BoosterPackComponent implements OnInit {
    @ViewChildren(CardDetailComponent) choices: QueryList<CardDetailComponent>;
-   @ViewChild(ArenaDirective) choiceHost: ArenaDirective;
    private pack: Card[];
    private pack$: Observable<Card[]>;
 
@@ -39,10 +36,5 @@ export class BoosterPackComponent implements OnInit {
    }
 
    ngAfterViewInit() {
-   }
-
-   draftCard($event) {
-      console.log($event);
-      this.ArenaService.sendPick($event);
    }
 }

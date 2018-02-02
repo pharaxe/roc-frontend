@@ -15,7 +15,6 @@ import { CardSearchComponent } from './card-search/card-search.component';
 import { CardSelectComponent } from './card-select/card-select.component';
 import { BoosterPackComponent } from './booster-pack/booster-pack.component';
 import { ArenaService } from './arena.service';
-import { ArenaDirective } from './arena/arena.directive';
 import { DraftableDirective } from './draftable.directive';
 
 @NgModule({
@@ -27,7 +26,6 @@ import { DraftableDirective } from './draftable.directive';
       CardSearchComponent,
       CardSelectComponent,
       BoosterPackComponent,
-      ArenaDirective,
       DraftableDirective
    ],
    imports: [
@@ -35,9 +33,6 @@ import { DraftableDirective } from './draftable.directive';
       AppRoutingModule,
       HttpClientModule,
       FormsModule
-   ],
-   entryComponents: [
-      CardDetailComponent
    ],
    providers: [ArenaService, CardService, MessageService],
    bootstrap: [AppComponent]

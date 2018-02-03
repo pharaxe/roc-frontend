@@ -25,10 +25,6 @@ export class ArenaService {
     return null;
    }
 
-   trackByFn(index, item) {
-      return index;
-   }
-
    sendPick(card): void {
 
    }

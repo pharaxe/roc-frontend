@@ -16,6 +16,7 @@ import { CardSelectComponent } from './card-select/card-select.component';
 import { BoosterPackComponent } from './booster-pack/booster-pack.component';
 import { ArenaService } from './arena.service';
 import { DraftableDirective } from './draftable.directive';
+import { DecklistItemComponent } from './decklist-item/decklist-item.component';
 
 @NgModule({
    declarations: [
@@ -26,7 +27,8 @@ import { DraftableDirective } from './draftable.directive';
       CardSearchComponent,
       CardSelectComponent,
       BoosterPackComponent,
-      DraftableDirective
+      DraftableDirective,
+      DecklistItemComponent
    ],
    imports: [
       BrowserModule,

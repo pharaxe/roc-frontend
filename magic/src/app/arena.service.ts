@@ -28,4 +28,8 @@ export class ArenaService {
    sendPick(card): void {
 
    }
+
+   getDeck(): Observable<Card[]> {
+      return null;
+   }
 }

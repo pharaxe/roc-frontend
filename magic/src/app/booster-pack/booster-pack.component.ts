@@ -14,7 +14,6 @@ import {CardDetailComponent} from '../card-detail/card-detail.component';
   styleUrls: ['./booster-pack.component.css'],
 })
 export class BoosterPackComponent implements OnInit {
-   @ViewChildren(CardDetailComponent) choices: QueryList<CardDetailComponent>;
    private pack: Card[];
    private pack$: Observable<Card[]>;
 

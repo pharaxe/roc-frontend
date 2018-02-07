@@ -11,7 +11,7 @@ const sandboxConfig = {
    providers: [
    { provide: CardService, useClass: MockCardService },
    ],
-   label: 'Decklist-Item Component',
+   label: 'Decklist',
 }; 
 
 

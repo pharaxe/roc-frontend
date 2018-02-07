@@ -17,6 +17,8 @@ import { BoosterPackComponent } from './booster-pack/booster-pack.component';
 import { ArenaService } from './arena.service';
 import { DraftableDirective } from './draftable.directive';
 import { DecklistItemComponent } from './decklist-item/decklist-item.component';
+import { DecklistComponent } from './decklist/decklist.component';
+import { SimpleArenaComponent } from './simple-arena/simple-arena.component';
 
 @NgModule({
    declarations: [
@@ -28,7 +30,9 @@ import { DecklistItemComponent } from './decklist-item/decklist-item.component';
       CardSelectComponent,
       BoosterPackComponent,
       DraftableDirective,
-      DecklistItemComponent
+      DecklistItemComponent,
+      DecklistComponent,
+      SimpleArenaComponent
    ],
    imports: [
       BrowserModule,

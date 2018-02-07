@@ -1,27 +1,40 @@
 import { Observable } from "rxjs/Observable";
 import { of } from 'rxjs/observable/of';
-import { catchError, map, tap } from 'rxjs/operators';
 import { Type } from "@angular/core";
-import { ActivatedRoute } from '@angular/router';
 
 import { Card } from '../card';
+
 import {HttpClient, HttpHeaders} from '@angular/common/http';
 
 import {Inject} from '@angular/core'
 import {Injectable} from '@angular/core'
 
 @Injectable()
-export class MockRandomBoosterPackService { 
+export class MockSimpleArenaService { 
+   deck: Card[];
    pack: Card[];
    private url = 'http://localhost/draft/web/app_dev.php/api/cards/random';
 
-   constructor(private http:HttpClient) { 
+   constructor(
+      private http:HttpClient,
+   ) { 
    }
 
    getPack(): Observable<Card[]> {
       this.pack = [];
       this.getRandomCards();
       return of(this.pack);
+   }
+
+   getDeck(): Observable<Card[]> {
+      this.deck = [];
+
+      return of(this.deck);
+   }
+
+   sendPick(card) { 
+      this.deck.push(card);
+      this.getRandomCards();
    }
 
    getRandomCards(): void {
@@ -31,9 +44,5 @@ export class MockRandomBoosterPackService {
 
    copyCards(newCards: Card[]): void {
       Object.assign(this.pack, newCards);
-   }
-
-   sendPick(card) {
-      this.getRandomCards();
    }
 }

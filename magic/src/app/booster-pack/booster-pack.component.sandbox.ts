@@ -6,13 +6,11 @@ import { Card }         from '../card';
 import {CardDetailComponent} from '../card-detail/card-detail.component';
 import { CardService }  from '../card.service';
 import { ArenaService }  from '../arena.service';
-import { ArenaDirective }  from '../arena/arena.directive';
 import { DraftableDirective} from '../draftable.directive';
 
 import { MockBasicBoosterPackService } from './mock.basic-booster-pack.service';
 import { MockRandomBoosterPackService } from './mock.random-booster-pack.service';
 import { MockCardService } from '../card-detail/mock.card.service';
-import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {HttpClientModule} from '@angular/common/http';
 
 const sandboxConfig = {

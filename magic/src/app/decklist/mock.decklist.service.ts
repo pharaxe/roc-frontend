@@ -46,22 +46,27 @@ export const deck1 = [
 ]
 
 export const deck2 = [
-   {
+   new Card({
       "id": 63861,
       "multiverseid": 159230,
       "name": "Hallowed Ground",
-      "url": "http://bensweedler.com/art/159230.jpg"
-   },
-   {
+      "url": "http://bensweedler.com/art/159230.jpg",
+      "cmc": 0
+   }),
+   new Card({
       "id": 61623,
       "multiverseid": 191089,
       "name": "Lightning Bolt",
-      "url": "http://bensweedler.com/art/191089.jpg"
-   },
-   {
+      "url": "http://bensweedler.com/art/191089.jpg",
+      "mana_cost": "{R}",
+      "cmc": 0
+   }),
+   new Card({
       "id": 67641,
       "multiverseid": 45483,
       "name": "Teferi's Puzzle Box",
-      "url": "http://bensweedler.com/art/45483.jpg"
-   }
+      "url": "http://bensweedler.com/art/45483.jpg",
+      "mana_cost": "{4}",
+      "cmc": 4
+   })
 ]

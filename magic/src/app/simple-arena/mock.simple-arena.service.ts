@@ -43,6 +43,8 @@ export class MockSimpleArenaService {
    }
 
    copyCards(newCards: Card[]): void {
-      Object.assign(this.pack, newCards);
+      newCards.forEach((cardData, ndx) => {
+         this.pack[ndx] = new Card(cardData);
+      });
    }
 }

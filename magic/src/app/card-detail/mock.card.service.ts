@@ -28,14 +28,14 @@ export const cards = {
       "id": 64723,
       "multiverseid": 83731,
       "name": "Watery Grave",
-      "url": "http://bensweedler.com/art/83731.jpg"
+      "url": "http://bensweedler.com/art/83731.jpg",
       "cmc": 0,
    }),
    382374: new Card({
 		"id": 65622,
 		"multiverseid": 382374,
 		"name": "Squirrel Nest",
-		"url": "http://bensweedler.com/art/382374.jpg"
+		"url": "http://bensweedler.com/art/382374.jpg",
       "cmc": 3,
       "mana_cost": "{1}{G}{G}"
    })

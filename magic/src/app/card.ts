@@ -5,7 +5,7 @@ export class Card {
    multiverseid: number;
    cmc: number;
    mana_cost: string;
-   mana_cost_html: string;
+   mana_symbols: string[];
 
    constructor(config: any) {
       this.id = config.id;

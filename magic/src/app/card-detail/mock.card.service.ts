@@ -16,22 +16,27 @@ export class MockCardService {
 }
 
 export const cards = {
-   205223:   {
+   205223:   new Card({
       "name": "Fireball",
       "id": 61590,
       "multiverseid": 205223,
-      "url": "http://bensweedler.com/art/205223.jpg"
-   },
-   83731: {
+      "url": "http://bensweedler.com/art/205223.jpg",
+       "cmc": 1,
+      "mana_cost": "{X}{R}"
+   }),
+   83731: new Card({
       "id": 64723,
       "multiverseid": 83731,
       "name": "Watery Grave",
       "url": "http://bensweedler.com/art/83731.jpg"
-   },
-   382374: {
+      "cmc": 0,
+   }),
+   382374: new Card({
 		"id": 65622,
 		"multiverseid": 382374,
 		"name": "Squirrel Nest",
 		"url": "http://bensweedler.com/art/382374.jpg"
-   }
+      "cmc": 3,
+      "mana_cost": "{1}{G}{G}"
+   })
 };

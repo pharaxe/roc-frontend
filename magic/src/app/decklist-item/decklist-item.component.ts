@@ -7,7 +7,10 @@ import {CardService} from '../card.service';
 @Component({
    selector: 'app-decklist-item',
    templateUrl: './decklist-item.component.html',
-   styleUrls: ['./decklist-item.component.css']
+   styleUrls: [
+      './mana-cost.css',
+      './decklist-item.component.css'
+   ]
 })
 export class DecklistItemComponent implements OnInit {
    @Input() public card: Card;
@@ -21,7 +24,8 @@ export class DecklistItemComponent implements OnInit {
 
    ngOnInit() {
 		if (this.id) {
-         this.CardService.getCard(this.id).subscribe(card => this.card = card);
+         this.CardService.getCard(this.id).subscribe(card => 
+            this.card = card);
 		}
    }
 

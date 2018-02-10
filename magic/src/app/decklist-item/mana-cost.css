@@ -21,6 +21,7 @@ https://www.slightlymagic.net/forum/viewtopic.php?f=15&t=4430
     display: inline-block;
     box-shadow: 1px 1px 1px #000;
     border-radius: 10px;
+   vertical-align: middle;
 }
 .mana.small {
     height: 1em;

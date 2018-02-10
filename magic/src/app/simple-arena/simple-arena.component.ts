@@ -7,7 +7,7 @@ import {ArenaService} from '../arena.service';
 @Component({
   selector: 'app-simple-arena',
   templateUrl: './simple-arena.component.html',
-  styleUrls: ['./simple-arena.component.css']
+  styleUrls: ['./simple-arena.component.css'],
 })
 export class SimpleArenaComponent implements OnInit {
   private pack: Card[];
@@ -23,5 +23,4 @@ export class SimpleArenaComponent implements OnInit {
      this.ArenaService.getPack().subscribe(pack => this.pack = pack);
      this.ArenaService.getDeck().subscribe(deck => this.deck = deck);
   }
-
 }

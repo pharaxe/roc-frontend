@@ -1,35 +1,51 @@
-import { Injectable } from '@angular/core';
-
-import { Observable } from 'rxjs/Observable';
+import { Observable } from "rxjs/Observable";
 import { of } from 'rxjs/observable/of';
-import { catchError, map, tap } from 'rxjs/operators';
+import { Type } from "@angular/core";
+
+import { Card } from './card';
 
 import {HttpClient, HttpHeaders} from '@angular/common/http';
-import { MessageService } from './message.service';
-import { CardService } from './card.service';
 
-import {Card} from './card';
+import {Inject} from '@angular/core'
+import {Injectable} from '@angular/core'
 
 @Injectable()
-export class ArenaService {
-   private pack: Card[];
+export class ArenaService { 
+   deck: Card[];
+   pack: Card[];
+   private url = 'http://localhost/draft/web/app_dev.php/api/cards/random';
 
-   constructor(private http: HttpClient, private messageService: MessageService) { 
+   constructor(
+      private http:HttpClient,
+   ) { 
    }
 
    getPack(): Observable<Card[]> {
-      return null;
-   }
-
-   getCard(id: number): Observable<Card> {
-    return null;
-   }
-
-   sendPick(card): void {
-
+      this.pack = [];
+      this.getRandomCards();
+      return of(this.pack);
    }
 
    getDeck(): Observable<Card[]> {
-      return null;
+      this.deck = [];
+
+      return of(this.deck);
+   }
+
+   sendPick(card) { 
+      this.deck.push(card);
+      this.getRandomCards();
+   }
+
+   getRandomCards(): void {
+      this.http
+        .get<Card[]>(this.url).subscribe(response => this.copyCards(response));
+   }
+
+   copyCards(newCards: Card[]): void {
+      newCards.forEach((cardData, ndx) => {
+         this.pack[ndx] = new Card(cardData);
+      });
    }
 }
+

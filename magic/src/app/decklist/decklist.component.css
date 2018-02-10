@@ -1,15 +1,17 @@
 .decklist {
 font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
 	width:290px;
+/*
 	border-top: 10px solid transparent;
 	border-bottom:10px solid transparent;
 	border-radius:5px;
-	border-color: $cardBorder;
-  color: $white;
+*/
+  border-color: black;
+  color: white;
   font-size: 18px;
   font-weight: bold;
-  text-shadow: 2px 2px 5px $cardBorder;
-  background:$cardBorder;
+  text-shadow: 2px 2px 5px black;
+  background:white;
   margin:0 auto 15px;
 
 }

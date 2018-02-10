@@ -13,7 +13,7 @@ import {Injectable} from '@angular/core'
 export class ArenaService { 
    deck: Card[];
    pack: Card[];
-   private url = 'http://localhost/draft/web/app_dev.php/api/cards/random';
+   private url = 'http://www.bensweedler.com/draft/web/app_dev.php/api/cards/random';
 
    constructor(
       private http:HttpClient,

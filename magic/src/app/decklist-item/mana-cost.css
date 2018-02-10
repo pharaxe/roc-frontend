@@ -1,3 +1,15 @@
+/*
+
+Uses the same CSS as Visual Decklist by Jacobph
+
+https://github.com/jacobph/vdl/tree/master/css/mana-cost-master
+
+Which in turn is based on Gobin Hero's vector mana symbols
+
+https://www.slightlymagic.net/forum/viewtopic.php?f=15&t=4430
+
+*/
+
 .mana-cost {
    display: inline-block;
 }

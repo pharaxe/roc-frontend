@@ -1,1 +1,5 @@
-<app-decklist-item *ngFor="let card of deck" [card]="card"></app-decklist-item>
+<ul class="decklist">
+   <li *ngFor="let card of deck">
+      <app-decklist-item [card]="card"></app-decklist-item>
+   </li>
+</ul>

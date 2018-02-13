@@ -17,6 +17,7 @@ import { DraftableDirective } from './draftable.directive';
 import { DecklistItemComponent } from './decklist-item/decklist-item.component';
 import { DecklistComponent } from './decklist/decklist.component';
 import { SimpleArenaComponent } from './simple-arena/simple-arena.component';
+import { ManaCurveComponent } from './mana-curve/mana-curve.component';
 
 @NgModule({
    declarations: [
@@ -27,7 +28,8 @@ import { SimpleArenaComponent } from './simple-arena/simple-arena.component';
       DraftableDirective,
       DecklistItemComponent,
       DecklistComponent,
-      SimpleArenaComponent
+      SimpleArenaComponent,
+      ManaCurveComponent
    ],
    imports: [
       BrowserModule,

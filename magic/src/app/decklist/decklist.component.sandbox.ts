@@ -2,12 +2,14 @@ import {sandboxOf} from 'angular-playground';
 import {DecklistComponent} from './decklist.component';
 import {DecklistItemComponent} from '../decklist-item/decklist-item.component';
 import {ManaCostComponent} from '../mana-cost/mana-cost.component';
+import {CardDetailComponent} from '../card-detail/card-detail.component';
 
 import { Card }         from '../card';
 import { CardService }  from '../card.service';
 import { ArenaService }  from '../arena.service';
 
 import { MockDecklistService } from './mock.decklist.service';
+import { MockSzadekDeckService } from './mock.szadek.service';
 import { MockCardService } from '../card-detail/mock.card.service';
 
 const sandboxConfig = {
@@ -17,7 +19,8 @@ const sandboxConfig = {
    ],
    declarations: [
       DecklistItemComponent,
-      ManaCostComponent
+      ManaCostComponent,
+      CardDetailComponent,
    ],
    label: 'Decklist'
 }; 
@@ -25,4 +28,10 @@ const sandboxConfig = {
 export default sandboxOf(DecklistComponent, sandboxConfig)
    .add('a couple cards', {
       template: `<app-decklist></app-decklist>`
+   })
+   .add('Szadek, Lord of Secrets', {
+      template:  `<app-card-detail [id]="1"></app-card-detail><app-decklist></app-decklist>`,
+      providers: [
+         {provide: ArenaService, useClass: MockSzadekDeckService},
+      ],
    });

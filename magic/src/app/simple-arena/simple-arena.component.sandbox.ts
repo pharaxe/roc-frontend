@@ -13,6 +13,7 @@ import {BoosterPackComponent} from '../booster-pack/booster-pack.component';
 import {CardDetailComponent} from '../card-detail/card-detail.component';
 import {DecklistComponent} from '../decklist/decklist.component';
 import {DecklistItemComponent} from '../decklist-item/decklist-item.component';
+import {ManaCostComponent} from '../mana-cost/mana-cost.component';
 import { DraftableDirective} from '../draftable.directive';
 
 const sandboxConfig = {
@@ -28,6 +29,7 @@ const sandboxConfig = {
       CardDetailComponent,
       DecklistItemComponent,
       DraftableDirective,
+      ManaCostComponent
    ],
    label: 'Arena'
 }; 

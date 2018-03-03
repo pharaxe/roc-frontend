@@ -1,6 +1,7 @@
 import {sandboxOf} from 'angular-playground';
 import {DecklistComponent} from './decklist.component';
 import {DecklistItemComponent} from '../decklist-item/decklist-item.component';
+import {ManaCostComponent} from '../mana-cost/mana-cost.component';
 
 import { Card }         from '../card';
 import { CardService }  from '../card.service';
@@ -16,11 +17,12 @@ const sandboxConfig = {
    ],
    declarations: [
       DecklistItemComponent,
+      ManaCostComponent
    ],
    label: 'Decklist'
 }; 
 
 export default sandboxOf(DecklistComponent, sandboxConfig)
-   .add('Fireballs', {
+   .add('a couple cards', {
       template: `<app-decklist></app-decklist>`
    });

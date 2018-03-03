@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import {Card} from '../card';
 import {ArenaService} from '../arena.service';
 import {DecklistItemComponent} from '../decklist-item/decklist-item.component';
+import {ManaCostComponent} from '../mana-cost/mana-cost.component';
 
 @Component({
   selector: 'app-decklist',

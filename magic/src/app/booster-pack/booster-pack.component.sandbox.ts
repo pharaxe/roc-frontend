@@ -32,7 +32,7 @@ export default sandboxOf(BoosterPackComponent, sandboxConfig)
    })
    .add('random packs', {
       template: `<app-booster-pack></app-booster-pack>`,
-      providers:
-      [{provide: ArenaService, useClass: MockRandomBoosterPackService},
+      providers: [
+         {provide: ArenaService, useClass: MockRandomBoosterPackService},
       ]
    });

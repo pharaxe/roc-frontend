@@ -38,5 +38,14 @@ export const cards = {
 		"url": "http://bensweedler.com/art/382374.jpg",
       "cmc": 3,
       "mana_cost": "{1}{G}{G}"
-   })
+   }),
+   1: new Card({
+      "id": 1,
+      "multiverseid": 89092,
+      "name": "Szadek, Lord of Secrets",
+      "url": "http://bensweedler.com/art/89092.jpg",
+      "cmc": 7,
+      "mana_cost": "{3}{U}{U}{B}{B}"
+   }),
 };
+

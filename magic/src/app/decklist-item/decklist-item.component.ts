@@ -3,12 +3,10 @@ import { Input, Component, OnInit } from '@angular/core';
 import {Card} from '../card';
 import {CardService} from '../card.service';
 
-
 @Component({
    selector: 'app-decklist-item',
    templateUrl: './decklist-item.component.html',
    styleUrls: [
-      './mana-cost.css',
       './decklist-item.component.css'
    ]
 })

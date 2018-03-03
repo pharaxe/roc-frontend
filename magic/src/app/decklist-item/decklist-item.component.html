@@ -2,7 +2,6 @@
 <div class="card-bg" [ngStyle]="{'background-image': 'url(' + card.url + ')'}">
 </div>
 <div class="card-flex">
- {{card.name}} <div class="mana-cost"><span *ngFor="let mana_symbol of card.mana_symbols" class="mana small s{{mana_symbol}}"></span></div>
-
+   {{card.name}} <app-mana-cost [card]="card"></app-mana-cost>
 </div>
- </div>
+</div>

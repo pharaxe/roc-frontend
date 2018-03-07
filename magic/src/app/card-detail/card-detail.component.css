@@ -1,15 +1,20 @@
 .card-detail {
-   width:200px;
-   min-width:200px;
 
-    border-radius: 3px;
-    border: 3px solid black;
-    /*box-shadow: 1px 1px 0px #888;*/
-    background-color: black;
+   border-radius: 3px;
+   border: 3px solid black;
+   /*box-shadow: 1px 1px 0px #888;*/
+   background-color: black;
+   margin: auto 5px;
 }
 
+@media (max-width: 640px)  {
+   .card-detail {
+      max-width: 200px;
+   }
+}
 
 .card-art {
    width: 100%;
+   max-height: 100%;
    display: block;
 }

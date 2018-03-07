@@ -1,7 +1,7 @@
 <div class="card">
-<div class="card-bg" [ngStyle]="{'background-image': 'url(' + card.url + ')'}">
-</div>
-<div class="card-flex">
-   {{card.name}} <app-mana-cost [card]="card"></app-mana-cost>
-</div>
+   <div class="card-bg" [ngStyle]="{'background-image': 'url(' + card.url + ')'}">
+   </div>
+   <div class="card-flex">
+      {{card.name}} <app-mana-cost [card]="card"></app-mana-cost>
+   </div>
 </div>

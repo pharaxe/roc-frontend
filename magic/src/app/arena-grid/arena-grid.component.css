@@ -3,7 +3,7 @@
 
 .grid-container {
    display: grid;
-   grid-template-columns: 700px 305px;
+   grid-template-columns: 3fr 1fr;
    grid-template-areas: 
       "header header"
       "arena decklist-area";
@@ -25,7 +25,7 @@
 }
 
 .choose {
-   font-size: 3em;
+   font-size: 1em;
    display: flex;
    justify-content: center;
    align-items: center;
@@ -34,18 +34,22 @@
 }
 
 .booster {
-   background-color: cyan;
    grid-area: "cards";
+   background-color: cyan;
 }
 
-.decklist {
+.decklist-col {
    grid-area: "decklist";
    align-items: top;
    background-color: coral;
-   height: 500px; /*TODO use vh units*/
+}
+
+.decklist {
    overflow-x: hidden;
-   overflow-y: scroll;
-   justify-self: stretch;
+   overflow-y: auto;
+   height: 500px; /*TODO use vh units*/
+   align-items: top;
+   align-self: stretch;
 }
 
 .decklist-header {
@@ -60,4 +64,10 @@
    grid-column-end: 3;
    background-color: yellow;
    align-self: start;
+}
+
+@media (max-width: 1000px) {
+   .decklist {
+      grid-area: "footer";
+   }
 }

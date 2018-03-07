@@ -1,7 +1,5 @@
 .decklist {
-   display: inline-block;
-   width: 270px;
-   max-width: 100%;
+   display: block;
    height: 100%;
 /*
 	border-top: 10px solid transparent;

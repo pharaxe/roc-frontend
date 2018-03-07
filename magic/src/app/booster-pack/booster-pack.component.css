@@ -1,13 +1,12 @@
-app-card-detail { 
-   /*
-   display: inline-block;
-   margin: 1.5em;
-   */
-}
-
-:host {
-   width: 700px;
+.booster {
    display: flex;
    flex-direction: row;
    justify-content: space-around;
 }
+
+@media (max-width: 640px)  {
+   .booster {
+      flex-direction: column;
+   }
+}
+

@@ -1,6 +1,6 @@
 .decklist {
-   display: block;
-   height: 100%;
+   display: flex;
+   flex-direction: column;
 /*
 	border-top: 10px solid transparent;
 	border-bottom:10px solid transparent;

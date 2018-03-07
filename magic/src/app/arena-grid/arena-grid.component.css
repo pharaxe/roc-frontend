@@ -8,12 +8,12 @@
 
    grid-column-gap: 20px;
    justify-content: center; /* centers the whole app */
+   /*height: 100vh; /* makes app vertically centered */ 
 }
 
 .arena {
    grid-column-start: 1;
    grid-column-end: 2;
-   background-color: green;
 }
 
 .choose {
@@ -27,27 +27,24 @@
 
 .booster {
    grid-area: "cards";
-   background-color: cyan;
 }
 
 .decklist-col {
    grid-column-start: 2;
    grid-column-end: 3;
-   align-items: top;
-   background-color: coral;
+   grid-row-start: 2;
+   grid-row-end: 3;
 }
 
 .decklist {
    overflow-x: hidden;
    overflow-y: auto;
-   height: 50vh; /*TODO use vh units*/
-   align-items: top;
    align-self: stretch;
+   max-height: 500px;
 }
 
 .decklist-header {
    justify-content: center;
-   background-color: cyan;
    text-align: center;
 }
 
@@ -55,7 +52,6 @@
    grid-area: "header";
    grid-column-start: 1;
    grid-column-end: 3;
-   background-color: yellow;
    align-self: start;
 }
 
@@ -65,6 +61,13 @@
       grid-row-start: 3;
       grid-column-start: 1;
       grid-column-end: 2;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+   }
+
+   .decklist {
+      /* max-width: 50%; */
    }
 
    .grid-container {
@@ -78,11 +81,6 @@
 }
 
 @media (max-width: 480px) {
-   /*
-   .decklist-header {
-      display: block;
-   }
-   */
    .grid-container {
       grid-row-gap: 20px;
    }

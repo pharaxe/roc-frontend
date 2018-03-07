@@ -4,24 +4,16 @@
 .grid-container {
    display: grid;
    grid-template-columns: 3fr 1fr;
-   grid-template-areas: 
-      "header header"
-      "arena decklist-area";
+   grid-template-rows: auto;
 
    grid-column-gap: 20px;
    justify-content: center; /* centers the whole app */
 }
 
 .arena {
-   grid-area: "arena";
+   grid-column-start: 1;
+   grid-column-end: 2;
    background-color: green;
-   display: grid;
-   grid-template-areas:
-      "title"
-      "cards"
-      "footer";
-
-   grid-template-rows: 1fr auto 1fr;
 }
 
 .choose {
@@ -39,7 +31,8 @@
 }
 
 .decklist-col {
-   grid-area: "decklist";
+   grid-column-start: 2;
+   grid-column-end: 3;
    align-items: top;
    background-color: coral;
 }
@@ -47,7 +40,7 @@
 .decklist {
    overflow-x: hidden;
    overflow-y: auto;
-   height: 500px; /*TODO use vh units*/
+   height: 50vh; /*TODO use vh units*/
    align-items: top;
    align-self: stretch;
 }
@@ -66,8 +59,31 @@
    align-self: start;
 }
 
+
 @media (max-width: 1000px) {
-   .decklist {
-      grid-area: "footer";
+   .decklist-col {
+      grid-row-start: 3;
+      grid-column-start: 1;
+      grid-column-end: 2;
+   }
+
+   .grid-container {
+      grid-row-gap: 20px;
+      grid-template-columns: 1fr;
+   }
+   .header {
+      grid-row-start: 1;
+      grid-column-end: 2;
+   }
+}
+
+@media (max-width: 480px) {
+   /*
+   .decklist-header {
+      display: block;
+   }
+   */
+   .grid-container {
+      grid-row-gap: 20px;
    }
 }

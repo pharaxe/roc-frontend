@@ -4,9 +4,8 @@
    justify-content: space-around;
 }
 
-@media (max-width: 640px)  {
+@media (max-width: 480px)  {
    .booster {
       flex-direction: column;
    }
 }
-

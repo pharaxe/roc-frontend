@@ -1,20 +1,23 @@
 <div class="body">
    <div class="grid-container">
       <div class="header">
-         header
+         <app-navigation-bar></app-navigation-bar>
       </div>
-      <div class="decklist-header">
-         Decklist
-      </div>
-
       <div class="arena">
-         <span class="choose">
+         <div class="choose">
             Choose a Card
-         </span>
-         <app-booster-pack></app-booster-pack>
+         </div>
+         <div class="booster">
+            <app-booster-pack></app-booster-pack>
+         </div>
       </div>
-      <div #scrollMe class="decklist">
-         <app-decklist></app-decklist>
+      <div class="decklist-col"> 
+         <div class="decklist-header">
+            Decklist
+         </div>
+         <div #scrollMe class="decklist">
+            <app-decklist></app-decklist>
+         </div>
       </div>
    </div>
 </div>

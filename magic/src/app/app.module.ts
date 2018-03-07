@@ -19,6 +19,7 @@ import { DecklistComponent } from './decklist/decklist.component';
 import { SimpleArenaComponent } from './simple-arena/simple-arena.component';
 import { ManaCostComponent } from './mana-cost/mana-cost.component';
 import { ArenaGridComponent } from './arena-grid/arena-grid.component';
+import { NavigationBarComponent } from './navigation-bar/navigation-bar.component';
 
 @NgModule({
    declarations: [
@@ -31,7 +32,8 @@ import { ArenaGridComponent } from './arena-grid/arena-grid.component';
       DecklistComponent,
       SimpleArenaComponent,
       ManaCostComponent,
-      ArenaGridComponent
+      ArenaGridComponent,
+      NavigationBarComponent
    ],
    imports: [
       BrowserModule,

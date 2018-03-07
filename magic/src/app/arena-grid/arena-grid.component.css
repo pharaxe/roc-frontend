@@ -1,32 +1,33 @@
 .body {
-   display: flex;
-   width: 100%;
-   justify-content: center;
 }
 
 .grid-container {
    display: grid;
    grid-template-columns: 700px 305px;
-   grid-template-rows: auto;
    grid-template-areas: 
-      "header decklist-header"
-      "arena decklist";
+      "header header"
+      "arena decklist-area";
 
-   grid-column-gap: 50px;
+   grid-column-gap: 20px;
+   justify-content: center; /* centers the whole app */
 }
 
 .arena {
    grid-area: "arena";
-   align-self: center;
+   background-color: green;
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+   align-items: center;
 }
 
 .choose {
-   grid-area: "arena";
-   align-self: center;
-   text-align: center;
-   width: 100%;
-   display: block;
-   margin: 0 auto;
+   font-size: 3em;
+   background-color: white;
+}
+
+.booster {
+   background-color: cyan;
 }
 
 .decklist {
@@ -36,10 +37,10 @@
    height: 500px; /*TODO use vh units*/
    overflow-x: hidden;
    overflow-y: scroll;
+   justify-self: stretch;
 }
 
 .decklist-header {
-   grid-area: "decklist-header";
    justify-content: center;
    background-color: cyan;
    text-align: center;
@@ -47,5 +48,8 @@
 
 .header {
    grid-area: "header";
+   grid-column-start: 1;
+   grid-column-end: 3;
    background-color: yellow;
+   align-self: start;
 }

@@ -18,5 +18,5 @@ const sandboxConfig = {
 
 export default sandboxOf(CardDetailComponent, sandboxConfig)
    .add('with fireball', {
-      template: `<app-card-detail [id]="205223"></app-card-detail>`
+      template: `<div style="width: 200px"><app-card-detail [id]="205223"></app-card-detail></div>`
    });

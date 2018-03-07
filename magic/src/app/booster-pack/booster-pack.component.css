@@ -1,4 +1,13 @@
 app-card-detail { 
+   /*
    display: inline-block;
    margin: 1.5em;
+   */
+}
+
+:host {
+   width: 700px;
+   display: flex;
+   flex-direction: row;
+   justify-content: space-between;
 }

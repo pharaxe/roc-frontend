@@ -27,10 +27,10 @@ const sandboxConfig = {
 
 export default sandboxOf(DecklistComponent, sandboxConfig)
    .add('a couple cards', {
-      template: `<app-decklist></app-decklist>`
+   template: `<div style="width: 290px"><app-decklist></app-decklist></div>`
    })
    .add('Szadek, Lord of Secrets', {
-      template:  `<app-card-detail [id]="1"></app-card-detail><app-decklist></app-decklist>`,
+   template:  `<app-card-detail [id]="1"></app-card-detail><div style="width: 290px"><app-decklist></app-decklist></div>`,
       providers: [
          {provide: ArenaService, useClass: MockSzadekDeckService},
       ],

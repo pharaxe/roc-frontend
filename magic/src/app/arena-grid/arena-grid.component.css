@@ -1,0 +1,51 @@
+.body {
+   display: flex;
+   width: 100%;
+   justify-content: center;
+}
+
+.grid-container {
+   display: grid;
+   grid-template-columns: 700px 305px;
+   grid-template-rows: auto;
+   grid-template-areas: 
+      "header decklist-header"
+      "arena decklist";
+
+   grid-column-gap: 50px;
+}
+
+.arena {
+   grid-area: "arena";
+   align-self: center;
+}
+
+.choose {
+   grid-area: "arena";
+   align-self: center;
+   text-align: center;
+   width: 100%;
+   display: block;
+   margin: 0 auto;
+}
+
+.decklist {
+   grid-area: "decklist";
+   align-items: top;
+   background-color: coral;
+   height: 500px; /*TODO use vh units*/
+   overflow-x: hidden;
+   overflow-y: scroll;
+}
+
+.decklist-header {
+   grid-area: "decklist-header";
+   justify-content: center;
+   background-color: cyan;
+   text-align: center;
+}
+
+.header {
+   grid-area: "header";
+   background-color: yellow;
+}

@@ -28,8 +28,6 @@ export class Card {
          manas = manas.replace(/}/g, ',');
          manas = manas.substring(0, manas.length-1); // trim off leading comma
          this.mana_symbols = manas.split(",");
-
-         console.log(this.mana_symbols);
       } 
    }
 }

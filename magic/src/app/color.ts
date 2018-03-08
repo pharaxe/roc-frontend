@@ -8,8 +8,8 @@ export class Color {
    }
 }
 
-export const white = new Color("White", "W");
-export const blue = new Color("Blue", "U");
-export const black = new Color("Black", "B");
-export const red = new Color("Red", "G");
-export const green = new Color("Green", "G");
+export const white = new Color("White", "w");
+export const blue = new Color("Blue", "u");
+export const black = new Color("Black", "b");
+export const red = new Color("Red", "r");
+export const green = new Color("Green", "g");

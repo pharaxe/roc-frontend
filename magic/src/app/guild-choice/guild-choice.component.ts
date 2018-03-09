@@ -5,7 +5,7 @@ import { Color }         from '../color';
 import { Draft }  from '../draft';
 import { Card }  from '../card';
 import { ArenaService }  from '../arena.service';
-//import { DraftableDirective} from '../draftable.directive';
+import { GuildChoiceDirective} from './guild-choice.directive';
 
 import {GuildIconComponent} from '../guild-icon/guild-icon.component';
 

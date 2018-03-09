@@ -23,4 +23,8 @@ export class MockGuildService {
    getGuildChoices(): Observable<Color[][]> { 
       return of(this.guilds);
    }
+
+   sendGuild(colors) {
+      console.log(colors);
+   }
 }

@@ -40,6 +40,10 @@ export class ArenaService {
       this.getRandomCards();
    }
 
+   sendGuild(colors) {
+      console.log(colors);
+   }
+
    getRandomCards(): void {
       this.http
         .get<Card[]>(this.url).subscribe(response => this.copyCards(response));
@@ -55,5 +59,7 @@ export class ArenaService {
       // initialize guildchoices?
       return of(this.draft.guildChoices);
    }
+
+
 }
 

@@ -3,7 +3,7 @@ import {GuildChoiceComponent} from './guild-choice.component';
 import {GuildIconComponent} from '../guild-icon/guild-icon.component';
 
 import { ArenaService }  from '../arena.service';
-import { DraftableDirective} from '../draftable.directive';
+import { GuildChoiceDirective} from './guild-choice.directive';
 
 import { MockGuildService } from './mock-guild-service';
 
@@ -13,7 +13,7 @@ const sandboxConfig = {
    ],
    declarations: [
       GuildIconComponent,
-      DraftableDirective,
+      GuildChoiceDirective,
    ],
    label: 'Choose a Guild'
 }; 

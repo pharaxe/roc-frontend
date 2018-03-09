@@ -21,6 +21,7 @@ import { ManaCostComponent } from './mana-cost/mana-cost.component';
 import { ArenaGridComponent } from './arena-grid/arena-grid.component';
 import { NavigationBarComponent } from './navigation-bar/navigation-bar.component';
 import { GuildIconComponent } from './guild-icon/guild-icon.component';
+import { GuildChoiceComponent } from './guild-choice/guild-choice.component';
 
 @NgModule({
    declarations: [
@@ -35,7 +36,8 @@ import { GuildIconComponent } from './guild-icon/guild-icon.component';
       ManaCostComponent,
       ArenaGridComponent,
       NavigationBarComponent,
-      GuildIconComponent
+      GuildIconComponent,
+      GuildChoiceComponent
    ],
    imports: [
       BrowserModule,

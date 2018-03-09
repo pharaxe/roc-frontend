@@ -3,6 +3,8 @@ import { of } from 'rxjs/observable/of';
 import { Type } from "@angular/core";
 
 import { Card } from './card';
+import { Draft } from './draft';
+import { Color } from './color';
 
 import {HttpClient, HttpHeaders} from '@angular/common/http';
 
@@ -13,6 +15,7 @@ import {Injectable} from '@angular/core'
 export class ArenaService { 
    deck: Card[];
    pack: Card[];
+   draft: Draft;
    private url = 'https://www.bensweedler.com/draft/web/app_dev.php/api/cards/random';
 
    constructor(
@@ -46,6 +49,11 @@ export class ArenaService {
       newCards.forEach((cardData, ndx) => {
          this.pack[ndx] = new Card(cardData);
       });
+   }
+
+   getGuildChoices(): Observable<Color[][]> { 
+      // initialize guildchoices?
+      return of(this.draft.guildChoices);
    }
 }
 

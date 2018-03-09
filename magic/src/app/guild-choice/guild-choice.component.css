@@ -1,0 +1,12 @@
+.guilds {
+   display: flex;
+   flex-direction: row;
+   justify-content: space-around;
+   align-items: center;
+}
+
+@media (max-width: 480px)  {
+   .guilds {
+      flex-direction: column;
+   }
+}

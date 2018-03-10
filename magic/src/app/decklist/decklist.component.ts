@@ -19,7 +19,10 @@ export class DecklistComponent implements OnInit {
    {}
 
   ngOnInit() {
-     this.ArenaService.getDeck().subscribe(deck => this.deck = deck);
+     this.ArenaService.getDeck().subscribe((deck) => {
+        this.deck = deck;
+        console.log("deck subscribed trigger", this.deck);
+     });
   }
 
 }

@@ -1,10 +1,12 @@
 import { BrowserModule } from '@angular/platform-browser';
-import {HttpClientModule} from '@angular/common/http';
-import {FormsModule} from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
+import { FormsModule } from '@angular/forms';
+import { RouterModule, Routes, Router, ActivatedRoute } from '@angular/router';
 import { NgModule } from '@angular/core';
 
 
 import { AppComponent } from './app.component';
+import { AppRoutes } from './app.routes';
 import { MessagesComponent } from './messages/messages.component';
 import { MessageService } from './message.service';
 
@@ -22,6 +24,7 @@ import { ArenaGridComponent } from './arena-grid/arena-grid.component';
 import { NavigationBarComponent } from './navigation-bar/navigation-bar.component';
 import { GuildIconComponent } from './guild-icon/guild-icon.component';
 import { GuildChoiceComponent } from './guild-choice/guild-choice.component';
+import { DraftManagerComponent } from './draft-manager/draft-manager.component';
 
 @NgModule({
    declarations: [
@@ -37,12 +40,14 @@ import { GuildChoiceComponent } from './guild-choice/guild-choice.component';
       ArenaGridComponent,
       NavigationBarComponent,
       GuildIconComponent,
-      GuildChoiceComponent
+      GuildChoiceComponent,
+      DraftManagerComponent
    ],
    imports: [
       BrowserModule,
       HttpClientModule,
-      FormsModule
+      FormsModule,
+      RouterModule.forRoot(AppRoutes)
    ],
    providers: [ArenaService, CardService, MessageService],
    bootstrap: [AppComponent]

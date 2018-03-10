@@ -15,7 +15,6 @@ import {CardDetailComponent} from '../card-detail/card-detail.component';
 })
 export class BoosterPackComponent implements OnInit {
    private pack: Card[];
-   private pack$: Observable<Card[]>;
 
    constructor(
       private CardService: CardService,
@@ -25,7 +24,10 @@ export class BoosterPackComponent implements OnInit {
 
    ngOnInit() {
       //this.pack$ = this.ArenaService.getPack();
-      this.ArenaService.getPack().subscribe(pack => this.pack = pack);
+      this.ArenaService.getPack().subscribe(pack => {
+         console.log("pack subscribe called", pack);
+         this.pack = pack
+      });
       /*
       this.ArenaService.getPack()
          .subscribe(pack => this.pack = pack);

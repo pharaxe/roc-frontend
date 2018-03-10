@@ -2,16 +2,17 @@ export class Card {
    id: number;
    name: string;
    url: string;
-   multiverseid: number;
    cmc: number;
    mana_cost: string;
    mana_symbols: string[];
+
+   multiverseid: number;
+   rarity: string;
 
    constructor(config: any) {
       this.id = config.id;
       this.name = config.name;
       this.url = config.url;
-      this.multiverseid = config.multiverseid;
       this.mana_cost = config.mana_cost;
       this.cmc = config.cmc;
 

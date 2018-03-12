@@ -173,7 +173,9 @@ export class ArenaService {
          this.draft.guildChoices[y] = [];
          for (var x = 0; x < response[y].length; x++) {
             let obj = response[y][x];
-            let c:Color = new Color(obj.name, obj.symbol, obj.id);
+            let c:Color = new Color(obj.name, obj.symbol);
+            c.id = obj.id;
+
             this.draft.guildChoices[y][x] = c;
             console.log(this.draft.guildChoices[y][x]);
          }

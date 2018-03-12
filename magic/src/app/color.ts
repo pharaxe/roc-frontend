@@ -3,16 +3,9 @@ export class Color {
    name: string;
    symbol: string;
 
-   constructor(name, symbol, id) {
+   constructor(name, symbol) {
       this.name = name;
       this.symbol = symbol;
-      this.id = id;
-   }
-
-   construct(data: any) {
-      this.name = data.name;
-      this.symbol = data.symbol;
-      this.id = data.id;
    }
 }
 

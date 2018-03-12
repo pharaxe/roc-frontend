@@ -9,7 +9,7 @@ import {ArenaService} from '../arena.service';
 })
 export class GuildChoiceDirective {
    constructor(private arenaService:ArenaService) {
-      console.log('here');
+      console.log('directive loaded');
    }
 
    @Input() colors: Color[];

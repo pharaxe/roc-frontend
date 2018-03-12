@@ -42,7 +42,6 @@ export class ArenaGridComponent implements OnInit {
      if (id) {
         this.ArenaService.fetchDraft(+id);
      } else {
-        this.guilds = this.ArenaService.getGuildChoices();
         this.ArenaService.fetchGuildChoices();
 
         //this.ArenaService.newDraft();

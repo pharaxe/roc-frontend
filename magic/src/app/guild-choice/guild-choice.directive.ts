@@ -9,6 +9,7 @@ import {ArenaService} from '../arena.service';
 })
 export class GuildChoiceDirective {
    constructor(private arenaService:ArenaService) {
+      console.log('here');
    }
 
    @Input() colors: Color[];
@@ -16,6 +17,7 @@ export class GuildChoiceDirective {
    @HostListener('click', ['$event'])
    clicked() {
       this.arenaService.sendGuild(this.colors);
+      console.log('here');
    }
 }
 

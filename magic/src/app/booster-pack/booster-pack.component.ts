@@ -23,17 +23,9 @@ export class BoosterPackComponent implements OnInit {
    { }
 
    ngOnInit() {
-      //this.pack$ = this.ArenaService.getPack();
       this.ArenaService.getPack().subscribe(pack => {
-         console.log("pack subscribe called", pack);
          this.pack = pack
       });
-      /*
-      this.ArenaService.getPack()
-         .subscribe(pack => this.pack = pack);
-
-      this.pack$ = of(this.pack);
-       */
    }
 
    ngAfterViewInit() {

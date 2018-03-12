@@ -1,8 +1,8 @@
 import {Routes} from '@angular/router';
-import {DraftManagerComponent} from './draft-manager/draft-manager.component';
+import {ArenaGridComponent} from './arena-grid/arena-grid.component';
 
 
 export const AppRoutes: Routes = [
-   { path: '', component: DraftManagerComponent, pathMatch: 'full' },
-   { path: 'draft/:id', component: DraftManagerComponent }
+   { path: '', component: ArenaGridComponent, pathMatch: 'full' },
+   { path: 'draft/:id', component: ArenaGridComponent }
 ];

@@ -16,6 +16,7 @@ import { Location, LocationStrategy, PathLocationStrategy } from '@angular/commo
 })
 export class DraftManagerComponent implements OnInit {
    private draftid: number;
+   private status: string; // setup, running, completed
 
    constructor(
       private route: ActivatedRoute,
@@ -23,42 +24,24 @@ export class DraftManagerComponent implements OnInit {
       private location: Location,
       private ArenaService: ArenaService
    ) { 
-
-      /*
-         console.log("draft changed");
-         console.log(draft);
-         console.log(draft.playerid);
-         /*
-      });
-          */
-
-
-      /*
-      ArenaService.draft = new Draft();
-      ArenaService.draft.draftid = 2;
-      ArenaService.draft.playerid = 1;
-       */
-
-      /*
-      if (!id) {
-         console.log('posting new draft');
-         ArenaService.newDraft();
-      }
-       */
    }
 
   ngOnInit() {
      this.ArenaService.getDraft().subscribe(draft => {
 
-       this.draftid = draft.draftid;
-       this.location.replaceState('draft/' + draft.draftid);
+        this.draftid = draft.draftid;
+        this.location.replaceState('draft/' + draft.draftid);
+
+        // determine state of draft.
+        this.status = draft.status;
      });
 
      let id = this.route.snapshot.paramMap.get('id');
      if (id) {
         this.ArenaService.fetchDraft(+id);
      } else {
-        this.ArenaService.newDraft();
+        this.ArenaService.fetchGuildChoices();
+        //this.ArenaService.newDraft();
      }
   }
 }

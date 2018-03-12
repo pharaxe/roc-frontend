@@ -19,14 +19,15 @@ export class ArenaService {
    pack: Card[];
    draft: Draft;
    private draftSubject:Subject<Draft> = new Subject<Draft>();
+   private guildSubject:Subject<Color[][]> = new Subject<Color[][]>();
    private api_url = 'https://www.bensweedler.com/draft/web/app_dev.php/api'
    private random_url = '/cards/random';
    private draft_url = '/drafts';
    private player_url = '/players';
    private picks_url = '/picks';
    private pack_url = '/pack';
+   private guilds_url = '/guilds';
       
-
    constructor(
       private http:HttpClient,
    ) { 
@@ -48,6 +49,10 @@ export class ArenaService {
       return this.draftSubject.asObservable();
    }
 
+   getGuildChoices(): Observable<Color[][]> {
+      return this.guildSubject.asObservable();
+   }
+
 
    sendPick(card) { 
       this.http.put(
@@ -67,24 +72,27 @@ export class ArenaService {
    }
 
    sendGuild(colors) {
+      // TODO here
+      console.log("sending guild choice");
       console.log(colors);
    }
 
    setupDraft(json: any) {
-      console.log("setupDraft called");
+      // TODO there's gotta be a better way to copy the json data to an object.
       let draftData = JSON.parse(json);
 
       let newDraft = new Draft();
       newDraft.draftid = draftData.id;
       let player = draftData.players[0];
       newDraft.playerid = player.id;
+      newDraft.status = draftData.status;
 
       let pack:Card[] = this.copyCards(player.pack.cards);
-
 
       for (var i = 0; i < pack.length; i++) {
          this.pack[i] = pack[i]; // somehow a hard copy is needed to not trash observers of this.pack
       }
+      // TODO, I think it's because I'm using of() and subscribe improperly.
 
       let deck:Card[] = this.copyCards(player.picks.cards);
 
@@ -93,11 +101,8 @@ export class ArenaService {
       }
 
       this.draft = newDraft;
-      this.announceDraft();
-      console.log("this.draft: ");
       console.log(this.draft);
-      console.log("newDraft: ");
-      console.log(newDraft);
+      this.announceDraft();
    }
 
    fetchPack(): void {
@@ -118,6 +123,10 @@ export class ArenaService {
 
    announceDraft() {
       this.draftSubject.next(this.draft);
+   }
+
+   announceGuilds() {
+      this.guildSubject.next(this.draft.guildChoices);
    }
 
    newDraft(): void {
@@ -152,9 +161,26 @@ export class ArenaService {
       }
    }
 
-   getGuildChoices(): Observable<Color[][]> { 
-      // initialize guildchoices?
-      return of(this.draft[0].guildChoices);
+   fetchGuildChoices() {
+      this.http.get( this.api_url + this.guilds_url)
+       .subscribe(response => this.copyGuildChoices(response));
+   }
+
+   copyGuildChoices(response) {
+      this.draft.guildChoices = [];
+      // argh again, why can't I just cast these json array/objs ?? TODO
+      for (var y = 0; y < response.length; y++) {
+         this.draft.guildChoices[y] = [];
+         for (var x = 0; x < response[y].length; x++) {
+            let obj = response[y][x];
+            let c:Color = new Color(obj.name, obj.symbol, obj.id);
+            this.draft.guildChoices[y][x] = c;
+            console.log(this.draft.guildChoices[y][x]);
+         }
+      }
+
+      console.log(this.draft.guildChoices);
+      this.announceGuilds();
    }
 }
 

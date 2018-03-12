@@ -24,7 +24,6 @@ export class GuildChoiceComponent implements OnInit {
 
    ngOnInit() {
       this.ArenaService.getGuildChoices().subscribe(choices => this.choices = choices);
-      console.log(this.choices);
    }
 
    ngAfterViewInit() {

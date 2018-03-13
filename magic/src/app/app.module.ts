@@ -16,6 +16,7 @@ import { ArenaService } from './arena.service';
 import { CardDetailComponent } from './card-detail/card-detail.component';
 import { BoosterPackComponent } from './booster-pack/booster-pack.component';
 import { DraftableDirective } from './draftable.directive';
+import { GuildChoiceDirective } from './guild-choice/guild-choice.directive';
 import { DecklistItemComponent } from './decklist-item/decklist-item.component';
 import { DecklistComponent } from './decklist/decklist.component';
 import { SimpleArenaComponent } from './simple-arena/simple-arena.component';
@@ -33,6 +34,7 @@ import { DraftManagerComponent } from './draft-manager/draft-manager.component';
       CardDetailComponent,
       BoosterPackComponent,
       DraftableDirective,
+      GuildChoiceDirective,
       DecklistItemComponent,
       DecklistComponent,
       SimpleArenaComponent,

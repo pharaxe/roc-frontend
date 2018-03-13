@@ -9,6 +9,7 @@ import { Draft } from './draft';
 import { Color } from './color';
 
 import {HttpClient, HttpHeaders} from '@angular/common/http';
+import { Headers, RequestOptions } from '@angular/http';
 
 import {Inject} from '@angular/core'
 import {Injectable} from '@angular/core'
@@ -73,8 +74,16 @@ export class ArenaService {
 
    sendGuild(colors) {
       // TODO here
+      let headers = new Headers({ 'Content-Type': 'application/json' });
+      let options = new RequestOptions({ headers: headers });
       console.log("sending guild choice");
       console.log(colors);
+      this.http.post( this.api_url + this.draft_url, JSON.stringify(colors), options).subscribe(
+        suc => {
+           console.log(suc);
+           this.setupDraft(suc);
+        }
+      );
    }
 
    setupDraft(json: any) {
@@ -168,15 +177,14 @@ export class ArenaService {
 
    copyGuildChoices(response) {
       this.draft.guildChoices = [];
-      // argh again, why can't I just cast these json array/objs ?? TODO
-      for (var y = 0; y < response.length; y++) {
-         this.draft.guildChoices[y] = [];
-         for (var x = 0; x < response[y].length; x++) {
-            let obj = response[y][x];
-            let c:Color = new Color(obj.name, obj.symbol);
-            c.id = obj.id;
+      let guildData = JSON.parse(response);
+      console.log(guildData);
 
-            this.draft.guildChoices[y][x] = c;
+      for (var y = 0; y < guildData.length; y++) {
+         this.draft.guildChoices[y] = [];
+         for (var x = 0; x < guildData[y].length; x++) {
+            let card = Object.assign(new Color(), guildData[y][x]); 
+            this.draft.guildChoices[y][x] = card;
             console.log(this.draft.guildChoices[y][x]);
          }
       }

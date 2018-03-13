@@ -9,7 +9,9 @@
             Choose a Card
          </div>
          -->
+         <div *ngIf="status=='setup'">
             <app-guild-choice></app-guild-choice>
+         </div>
 
          <div class="booster">
             <app-booster-pack></app-booster-pack>

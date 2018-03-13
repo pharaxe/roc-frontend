@@ -72,12 +72,8 @@ export class ArenaService {
    }
 
    sendGuild(colors) {
-      console.log("sending guild choice");
-      console.log(colors);
-      console.log(JSON.stringify({"colors": colors}));
       this.http.post( this.api_url + this.draft_url, {"colors" : colors}).subscribe(
         suc => {
-           console.log(suc);
            this.setupDraft(suc);
         },
         err => {
@@ -110,7 +106,6 @@ export class ArenaService {
       }
 
       this.draft = newDraft;
-      console.log(this.draft);
       this.announceDraft();
    }
 
@@ -142,6 +137,12 @@ export class ArenaService {
       this.http
        .post( this.api_url + this.draft_url, null)
        .subscribe(response => this.setupDraft(response));
+   }
+
+   clearDraft(): void {
+      this.draft = new Draft();
+      this.deck.length = 0;
+      this.pack.length = 0;
    }
 
    // this function making assumption on the data layout symfony provides
@@ -178,20 +179,17 @@ export class ArenaService {
    copyGuildChoices(response) {
       this.draft.guildChoices = [];
       let guildData = JSON.parse(response);
-      console.log(guildData);
 
-      // TODO there has GOT to be a better way of copying json to object...
+      // TODO there has GOT to be a better way of copying json to an array of objects...
       for (var y = 0; y < guildData.length; y++) {
          this.draft.guildChoices[y] = [];
          for (var x = 0; x < guildData[y].length; x++) {
             let color = new Color(guildData[y][x].name, guildData[y][x].symbol);
             color.id = guildData[y][x].id;
             this.draft.guildChoices[y][x] = color;
-            console.log(this.draft.guildChoices[y][x]);
          }
       }
 
-      console.log(this.draft.guildChoices);
       this.announceGuilds();
    }
 }

@@ -22,4 +22,30 @@ export class GuildIconComponent implements OnInit {
      this.colorCode = "";
      colors.forEach(color => this.colorCode += color.symbol);
   }
+
+  getGuildName(): string {
+     let colorString = this.colors[0].symbol + this.colors[1].symbol;
+     switch(colorString) {
+        case 'WU':
+           return 'Azorious';
+        case 'UB':
+          return 'Dimir';
+        case 'BR':
+          return 'Rakdos';
+        case 'RG':
+          return 'Gruul';
+        case 'WG':
+          return 'Selesnya';
+        case 'WB':
+          return 'Orzhov';
+        case 'UR':
+          return 'Izzet';
+        case 'BG':
+          return 'Golgari';
+        case 'WR':
+          return 'Boros';
+        case 'UG':
+          return 'Simic';
+     }
+  }
 }

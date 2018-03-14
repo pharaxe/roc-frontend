@@ -1,20 +1,32 @@
-.body {
-}
-
-.grid-container {
-   display: grid;
-   grid-template-columns: 3fr 1fr;
-   grid-template-rows: auto;
-
-   grid-column-gap: 20px;
-   justify-content: center; /* centers the whole app */
-   /*height: 100vh; /* makes app vertically centered */ 
-}
-
 .arena {
-   grid-column-start: 1;
-   grid-column-end: 2;
+   display: flex;
+   flex: 1;
+   flex-direction: column;
+   min-height: 100vh;
 }
+
+.arena-body {
+   display: flex;
+   flex: 1;
+}
+
+.arena-header{
+   color: #ddd;
+   font-size: 2em;
+   font-family: sans-serif;
+   font-style: italic;
+   background-color: #333;
+}
+
+.arena-header > span {
+   padding-left: 2em;
+}
+
+.arena-header span {
+   line-height: 50px;
+   padding-left: 10px;
+}
+
 
 .choose {
    font-size: 1em;
@@ -22,45 +34,32 @@
    justify-content: center;
    align-items: center;
    background-color: white;
-   grid-area: "title";
 }
 
 .booster {
-   grid-area: "cards";
 }
 
 .decklist-col {
-   grid-column-start: 2;
-   grid-column-end: 3;
-   grid-row-start: 2;
-   grid-row-end: 3;
+   background-color: #ddd;
+   flex: 0 0 12em;
+   max-height:100%;
+}
+
+.decklist-header {
+   text-align: center;
 }
 
 .decklist {
    overflow-x: hidden;
    overflow-y: auto;
-   align-self: stretch;
-   max-height: 500px;
+   background-color: coral;
 }
 
-.decklist-header {
-   justify-content: center;
-   text-align: center;
+.decklist-count {
 }
-
-.header {
-   grid-area: "header";
-   grid-column-start: 1;
-   grid-column-end: 3;
-   align-self: start;
-}
-
 
 @media (max-width: 1000px) {
    .decklist-col {
-      grid-row-start: 3;
-      grid-column-start: 1;
-      grid-column-end: 2;
       display: flex;
       flex-direction: column;
       justify-content: flex-start;
@@ -74,7 +73,7 @@
       grid-row-gap: 20px;
       grid-template-columns: 1fr;
    }
-   .header {
+   .grid-header {
       grid-row-start: 1;
       grid-column-end: 2;
    }

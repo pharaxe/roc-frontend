@@ -62,7 +62,6 @@ export class ArenaGridComponent implements OnInit {
          if (data.url == "") {
             this.draftid = 0;
             this.ArenaService.clearDraft();
-            console.log(this.status);
             this.status = "setup";
             this.ArenaService.fetchGuildChoices();
          }

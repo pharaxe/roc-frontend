@@ -12,9 +12,13 @@
          <div *ngIf="status=='setup'">
             <app-guild-choice></app-guild-choice>
          </div>
-
-         <div class="booster">
-            <app-booster-pack></app-booster-pack>
+         <div *ngIf="status=='running'">
+            <div class="booster">
+               <app-booster-pack></app-booster-pack>
+            </div>
+         </div>
+         <div *ngIf="status=='completed'">
+            Draft Completed
          </div>
       </div>
       <div class="decklist-col"> 

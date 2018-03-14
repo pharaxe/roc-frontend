@@ -1,10 +1,5 @@
 .decklist-component {
    display: flex;
    flex-direction: column;
-/*
-	border-top: 10px solid transparent;
-	border-bottom:10px solid transparent;
-	border-radius:5px;
-*/
-  margin:0 auto;
+   /* margin:0 auto;*/
 }

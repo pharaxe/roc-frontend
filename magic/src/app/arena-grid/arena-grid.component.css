@@ -1,12 +1,15 @@
 .arena {
    display: flex;
-   flex: 1;
    flex-direction: column;
    min-height: 100vh;
 }
 
 .arena-body {
    display: flex;
+   flex: 1;
+}
+
+.arena-content {
    flex: 1;
 }
 
@@ -22,65 +25,79 @@
    padding-left: 2em;
 }
 
+.arena-header a {
+  color: inherit; 
+  text-decoration: inherit; /* no underline */
+}
+
 .arena-header span {
    line-height: 50px;
    padding-left: 10px;
 }
 
 
-.choose {
-   font-size: 1em;
-   display: flex;
-   justify-content: center;
-   align-items: center;
-   background-color: white;
-}
-
 .booster {
 }
 
 .decklist-col {
    background-color: #ddd;
-   flex: 0 0 12em;
+   flex: 0 1 25%; 
    max-height:100%;
+   margin-left: auto;
+   display: flex;
+   flex-direction: column;
+   overflow: hidden;
 }
 
 .decklist-header {
    text-align: center;
+   flex: 0;
 }
 
 .decklist {
    overflow-x: hidden;
    overflow-y: auto;
-   background-color: coral;
+   height: 1px;  // weird but works in tandem with flex and min-height
+   min-height: min-content;
+   flex: 1;
 }
 
 .decklist-count {
+   margin-top: auto;
+   flex: 0;
 }
 
 @media (max-width: 1000px) {
-   .decklist-col {
-      display: flex;
+   .arena-body {
       flex-direction: column;
-      justify-content: flex-start;
+      flex: 1;
+      align-items: center;
+   }
+
+   .arena-content {
+      flex: 1;
+   }
+
+   .decklist-col {
+      margin: 0;
+      width: 45%;
    }
 
    .decklist {
-      /* max-width: 50%; */
+      overflow: auto;
+      height: 100%;
+      flex: 1;
    }
 
-   .grid-container {
-      grid-row-gap: 20px;
-      grid-template-columns: 1fr;
+   /*
+   .decklist {
+      /* max-width: 50%; 
    }
-   .grid-header {
-      grid-row-start: 1;
-      grid-column-end: 2;
-   }
+   */
 }
 
 @media (max-width: 480px) {
-   .grid-container {
-      grid-row-gap: 20px;
+   .decklist-col {
+      width: 100%;
    }
 }

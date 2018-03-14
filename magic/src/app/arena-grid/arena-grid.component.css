@@ -37,6 +37,7 @@
 
 
 .booster {
+   margin-top: 10px;
 }
 
 .decklist-col {
@@ -64,6 +65,7 @@
 
 .decklist-count {
    margin-top: auto;
+   align-self: center;
    flex: 0;
 }
 

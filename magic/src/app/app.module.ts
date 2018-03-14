@@ -26,6 +26,7 @@ import { NavigationBarComponent } from './navigation-bar/navigation-bar.componen
 import { GuildIconComponent } from './guild-icon/guild-icon.component';
 import { GuildChoiceComponent } from './guild-choice/guild-choice.component';
 import { DraftManagerComponent } from './draft-manager/draft-manager.component';
+import { DecklistCountComponent } from './decklist-count/decklist-count.component';
 
 @NgModule({
    declarations: [
@@ -43,7 +44,8 @@ import { DraftManagerComponent } from './draft-manager/draft-manager.component';
       NavigationBarComponent,
       GuildIconComponent,
       GuildChoiceComponent,
-      DraftManagerComponent
+      DraftManagerComponent,
+      DecklistCountComponent
    ],
    imports: [
       BrowserModule,

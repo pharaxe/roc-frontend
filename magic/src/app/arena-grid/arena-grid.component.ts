@@ -7,6 +7,7 @@ import { ISubscription, Subscription } from "rxjs/Subscription";
 import {ArenaService} from '../arena.service';
 import {Draft} from '../draft';
 import {Color} from '../color';
+import {Card} from '../card';
 import { Location, LocationStrategy, PathLocationStrategy } from '@angular/common';
 
 @Component({
@@ -33,17 +34,20 @@ export class ArenaGridComponent implements OnInit {
 
    ngOnInit() {
       this.ArenaService.getDraft().subscribe(draft => {
+         if (this.status == "setup" && this.location.path() == "") {
+            // starting out a draft.
+            this.location.go('draft/' + draft.draftid);
+         }
+
          this.draftid = draft.draftid;
          this.status = draft.status;
 
-         if (this.location.path() == "") {
-            this.location.go('draft/' + draft.draftid);
-            console.log("pushing onto location");
-            // determine state of draft.
+         if (this.status == "completed") {
+            console.log(this.status);
          }
       });
 
-      // TODO I have much to learn about location history in angular. this isn't working quite how inended but it's close enough. The bug is caling fetchguildchoices twice sometimes. only if back and forward buttons are used.
+      // TODO I have much to learn about location history in angular. this isn't working quite how intended but it's close enough. The main bug is caling fetchguildchoices twice sometimes. only if back and forward buttons are used to navigate.
       this.paramSubscription = this.route.params.subscribe( params => {
          let id = this.route.snapshot.paramMap.get('id');
          if (id) {
@@ -58,6 +62,7 @@ export class ArenaGridComponent implements OnInit {
          if (data.url == "") {
             this.draftid = 0;
             this.ArenaService.clearDraft();
+            console.log(this.status);
             this.status = "setup";
             this.ArenaService.fetchGuildChoices();
          }

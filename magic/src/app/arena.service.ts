@@ -62,7 +62,13 @@ export class ArenaService {
          + this.picks_url + '/' +  card.id, null).subscribe(
         suc => {
            this.deck.push(card);
-           this.parseCards(suc);
+           let json = JSON.parse(String(suc)); // TODO I'm parsing twice for each response.
+           if (json.cards.length > 0) { // we got a pack back
+              this.parseCards(suc);
+           } else { // not getting a pack back means draft is done.
+              this.draft.status = "completed";
+              this.announceDraft();
+           }
         },
         err => {
            // hack. make sure to update the cards on an error in case frontend and backend are out of sync.

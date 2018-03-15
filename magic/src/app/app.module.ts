@@ -4,7 +4,7 @@ import { FormsModule } from '@angular/forms';
 import { RouterModule, Routes, Router, ActivatedRoute } from '@angular/router';
 import { NgModule } from '@angular/core';
 import { ClipboardModule } from 'ngx-clipboard';
-
+import { PersistenceModule } from 'angular-persistence';
 
 import { AppComponent } from './app.component';
 import { AppRoutes } from './app.routes';
@@ -57,7 +57,8 @@ import { DeckGridComponent } from './deck-grid/deck-grid.component';
       HttpClientModule,
       FormsModule,
       RouterModule.forRoot(AppRoutes),
-      ClipboardModule
+      ClipboardModule,
+      PersistenceModule
    ],
    providers: [ArenaService, CardService, MessageService],
    bootstrap: [AppComponent]

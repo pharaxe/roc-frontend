@@ -12,6 +12,9 @@ import {HttpClient, HttpHeaders} from '@angular/common/http';
 
 import {Inject} from '@angular/core'
 import {Injectable} from '@angular/core'
+import { UUID } from 'angular2-uuid';
+import {PersistenceService} from 'angular-persistence';
+import {StorageType} from 'angular-persistence';
 
 @Injectable()
 export class ArenaService { 
@@ -28,14 +31,22 @@ export class ArenaService {
    public pack_url = '/pack';
    public guilds_url = '/guilds';
    public deck_url = '/deck';
+   private uuid: string = "";
       
    constructor(
       private http:HttpClient,
+      private persistenceService:PersistenceService
    ) { 
    
       this.draft = new Draft();
       this.deck = [];
       this.pack = [];
+
+      this.uuid = this.persistenceService.get('lightning-draft-uuid', StorageType.LOCAL);
+      if (this.uuid == undefined) {
+         this.uuid = UUID.UUID(); 
+         this.persistenceService.set('lightning-draft-uuid', this.uuid, {type: StorageType.LOCAL });
+      }
    }
 
    getPack(): Observable<Card[]> {
@@ -54,6 +65,9 @@ export class ArenaService {
       return this.guildSubject.asObservable();
    }
 
+   getUUID():string {
+      return this.uuid;
+   }
 
    sendPick(card) { 
       this.http.put(
@@ -92,7 +106,7 @@ export class ArenaService {
        */
 
    sendGuild(colors) {
-      this.http.post( this.api_url + this.draft_url, {"colors" : colors}).subscribe(
+      this.http.post( this.api_url + this.draft_url, {"colors" : colors, "uuid": this.uuid}).subscribe(
         suc => {
            this.setupDraft(suc);
         },

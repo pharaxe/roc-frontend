@@ -32,7 +32,6 @@ export class ArenaGridComponent implements OnInit {
    ) { 
    }
 
-
    ngOnInit() {
       this.ArenaService.getDraft().subscribe(draft => {
          if (this.status == "setup" && this.location.path() == "") {

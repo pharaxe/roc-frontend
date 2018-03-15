@@ -23,7 +23,7 @@
     "@angular/platform-browser-dynamic": "^5.2.4",
     "@angular/router": "^5.2.4",
     "angular-in-memory-web-api": "^0.5.3",
-    "angular-local-store": "0.0.3",
+    "angular-persistence": "^1.0.1",
     "angular2-uuid": "^1.1.1",
     "core-js": "^2.4.1",
     "ngx-clipboard": "^10.0.0",

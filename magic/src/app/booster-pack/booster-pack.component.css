@@ -12,5 +12,13 @@
 }
 
 app-card-detail {
+   margin: auto 5px;
+}
+
+app-card-detail {
    cursor: pointer;   
+}
+
+app-card-detail:hover {
+   box-shadow: 0px 0px 20px 6px rgba(82, 168, 236, 0.6);
 }

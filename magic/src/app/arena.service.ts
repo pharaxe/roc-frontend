@@ -20,13 +20,14 @@ export class ArenaService {
    draft: Draft;
    private draftSubject:Subject<Draft> = new Subject<Draft>();
    private guildSubject:Subject<Color[][]> = new Subject<Color[][]>();
-   private api_url = 'https://www.bensweedler.com/draft/web/app_dev.php/api'
-   private random_url = '/cards/random';
-   private draft_url = '/drafts';
-   private player_url = '/players';
-   private picks_url = '/picks';
-   private pack_url = '/pack';
-   private guilds_url = '/guilds';
+   public api_url = 'https://www.bensweedler.com/draft/web/app_dev.php/api'
+   public random_url = '/cards/random';
+   public draft_url = '/drafts';
+   public player_url = '/players';
+   public picks_url = '/picks';
+   public pack_url = '/pack';
+   public guilds_url = '/guilds';
+   public deck_url = '/deck';
       
    constructor(
       private http:HttpClient,
@@ -62,6 +63,8 @@ export class ArenaService {
          + this.picks_url + '/' +  card.id, null).subscribe(
         suc => {
            this.deck.push(card);
+
+           //this.sortDeck();
            let json = JSON.parse(String(suc)); // TODO I'm parsing twice for each response.
            if (json.cards.length > 0) { // we got a pack back
               this.parseCards(suc);
@@ -76,6 +79,17 @@ export class ArenaService {
         }
       );
    }
+
+      /*
+   sortDeck() {
+      this.deck.sort((n1, n2) =>
+         if (n1.cmc == n2.cmc) 
+            return 0;
+
+         return n1.cmc > n2.cmc ? +1 : -1;
+      );
+   }
+       */
 
    sendGuild(colors) {
       this.http.post( this.api_url + this.draft_url, {"colors" : colors}).subscribe(

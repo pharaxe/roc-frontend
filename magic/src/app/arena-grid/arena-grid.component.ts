@@ -19,6 +19,7 @@ import { Location, LocationStrategy, PathLocationStrategy } from '@angular/commo
 export class ArenaGridComponent implements OnInit {
    @ViewChild('scrollMe') private myScroll: ElementRef;
    private draftid: number = 0;
+   private playerid: number;
    private status: string = 'setup'; // setup, running, completed
    private locationSubscription: ISubscription;
    private paramSubscription: Subscription;
@@ -40,6 +41,7 @@ export class ArenaGridComponent implements OnInit {
          }
 
          this.draftid = draft.draftid;
+         this.playerid = draft.playerid;
          this.status = draft.status;
 
          if (this.status == "completed") {

@@ -29,6 +29,7 @@ import { GuildChoiceComponent } from './guild-choice/guild-choice.component';
 import { DraftManagerComponent } from './draft-manager/draft-manager.component';
 import { DecklistCountComponent } from './decklist-count/decklist-count.component';
 import { CompletedScreenComponent } from './completed-screen/completed-screen.component';
+import { DeckGridComponent } from './deck-grid/deck-grid.component';
 
 @NgModule({
    declarations: [
@@ -48,7 +49,8 @@ import { CompletedScreenComponent } from './completed-screen/completed-screen.co
       GuildChoiceComponent,
       DraftManagerComponent,
       DecklistCountComponent,
-      CompletedScreenComponent
+      CompletedScreenComponent,
+      DeckGridComponent
    ],
    imports: [
       BrowserModule,

@@ -1,3 +1,7 @@
 .options {
    margin: 20px;
 }
+
+.options {
+   display: none;
+}

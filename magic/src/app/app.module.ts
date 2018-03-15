@@ -3,6 +3,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { RouterModule, Routes, Router, ActivatedRoute } from '@angular/router';
 import { NgModule } from '@angular/core';
+import { ClipboardModule } from 'ngx-clipboard';
 
 
 import { AppComponent } from './app.component';
@@ -53,7 +54,8 @@ import { CompletedScreenComponent } from './completed-screen/completed-screen.co
       BrowserModule,
       HttpClientModule,
       FormsModule,
-      RouterModule.forRoot(AppRoutes)
+      RouterModule.forRoot(AppRoutes),
+      ClipboardModule
    ],
    providers: [ArenaService, CardService, MessageService],
    bootstrap: [AppComponent]

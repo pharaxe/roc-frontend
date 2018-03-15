@@ -9,6 +9,6 @@
    You can print out your deck using <a href="{{getPrintUrl()}}">MTG Press</a>.
    </p>
    <p>
-   You can <a href="">copy</a> the decklist to your clipboard.
+   You can <button ngxClipboard [cbContent]="getDecklistText()"  (cbOnSuccess)="copiedSuccessfully()">copy</button> the decklist to your clipboard.
    </p>
 </div>

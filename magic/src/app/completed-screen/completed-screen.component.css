@@ -1,4 +1,6 @@
-.options {
+.info {
    margin: 20px;
+   display: flex;
+   z-index: 0;
 }
 

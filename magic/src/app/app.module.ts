@@ -1,4 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { RouterModule, Routes, Router, ActivatedRoute } from '@angular/router';
@@ -30,6 +31,7 @@ import { DraftManagerComponent } from './draft-manager/draft-manager.component';
 import { DecklistCountComponent } from './decklist-count/decklist-count.component';
 import { CompletedScreenComponent } from './completed-screen/completed-screen.component';
 import { DeckGridComponent } from './deck-grid/deck-grid.component';
+import { GuildIconDescriptionComponent } from './guild-icon-description/guild-icon-description.component';
 
 @NgModule({
    declarations: [
@@ -50,10 +52,12 @@ import { DeckGridComponent } from './deck-grid/deck-grid.component';
       DraftManagerComponent,
       DecklistCountComponent,
       CompletedScreenComponent,
-      DeckGridComponent
+      DeckGridComponent,
+      GuildIconDescriptionComponent
    ],
    imports: [
       BrowserModule,
+      BrowserAnimationsModule,
       HttpClientModule,
       FormsModule,
       RouterModule.forRoot(AppRoutes),

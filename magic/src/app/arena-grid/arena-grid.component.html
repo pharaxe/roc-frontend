@@ -8,12 +8,18 @@
             <app-guild-choice></app-guild-choice>
          </div>
          <div *ngIf="status=='running'">
+            <div *ngIf="deck.length==0" class="choose-label">
+               Choose a card
+            </div>
+            <div *ngIf="deck.length==1" class="choose-label">
+               Build a 25 card deck
+            </div>
             <div class="booster">
                <app-booster-pack></app-booster-pack>
             </div>
          </div>
          <div *ngIf="status=='completed'">
-            <app-completed-screen [playerid]="playerid" [draftid]="draftid"></app-completed-screen>
+            <app-completed-screen [draft]="draft"></app-completed-screen>
          </div>
       </div>
       <div class="decklist-col">

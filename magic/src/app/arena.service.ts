@@ -139,6 +139,14 @@ export class ArenaService {
          this.deck[i] = deck[i];
       }
 
+      let colors = [];
+      for (var x = 0; x < player.colors.length; x++) {
+         let color = new Color(player.colors[x].name, player.colors[x].symbol);
+         color.id = player.colors[x].id;
+         colors[x] = color;
+      }
+      newDraft.guild = colors;
+
       this.draft = newDraft;
       this.announceDraft();
    }

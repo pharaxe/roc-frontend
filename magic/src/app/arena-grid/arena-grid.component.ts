@@ -20,9 +20,11 @@ export class ArenaGridComponent implements OnInit {
    @ViewChild('scrollMe') private myScroll: ElementRef;
    private draftid: number = 0;
    private playerid: number;
+   private draft: Draft;
    private status: string = 'setup'; // setup, running, completed
    private locationSubscription: ISubscription;
    private paramSubscription: Subscription;
+   private deck: Card[];
 
    constructor(
       private route: ActivatedRoute,
@@ -42,10 +44,12 @@ export class ArenaGridComponent implements OnInit {
          this.draftid = draft.draftid;
          this.playerid = draft.playerid;
          this.status = draft.status;
+         this.draft = draft;
+         console.log(this.draft.guild);
+      });
 
-         if (this.status == "completed") {
-            console.log(this.status);
-         }
+      this.ArenaService.getDeck().subscribe((deck) => {
+         this.deck = deck;
       });
 
       // TODO I have much to learn about location history in angular. this isn't working quite how intended but it's close enough. The main bug is caling fetchguildchoices twice sometimes. only if back and forward buttons are used to navigate.

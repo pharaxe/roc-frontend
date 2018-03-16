@@ -4,3 +4,9 @@
    z-index: 0;
 }
 
+
+@media (max-width: 1000px) {
+   .deck-grid {
+      display: none;
+   }
+}

@@ -101,7 +101,7 @@ export class ArenaService {
          console.log("spot", spot.getAdjustedCmc());
 
          if (card.getAdjustedCmc() >= spot.getAdjustedCmc()) {
-            this.deck.splice(i + 1, 0 card);
+            this.deck.splice(i + 1, 0, card);
             return;
          }
       }

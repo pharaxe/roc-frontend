@@ -39,5 +39,6 @@ export class Card {
          adjusted_cmc += 8;
       }
 
+      return adjusted_cmc;
    }
 }

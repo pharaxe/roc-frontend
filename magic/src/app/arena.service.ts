@@ -76,7 +76,7 @@ export class ArenaService {
          + this.player_url + '/' + this.draft.playerid 
          + this.picks_url + '/' +  card.id, null).subscribe(
         suc => {
-           this.deck.push(card);
+           this.addPickToDecklist(card);
 
            //this.sortDeck();
            let json = JSON.parse(String(suc)); // TODO I'm parsing twice for each response.
@@ -92,6 +92,22 @@ export class ArenaService {
            this.parseCards(err);
         }
       );
+   }
+
+   addPickToDecklist(card) {
+      console.log("Card", card.getAdjustedCmc());
+      for (var i = this.deck.length - 1; i >= 0; i--) {
+         let spot:Card = this.deck[i];
+         console.log("spot", spot.getAdjustedCmc());
+
+         if (card.getAdjustedCmc() >= spot.getAdjustedCmc()) {
+            this.deck.splice(i + 1, 0 card);
+            return;
+         }
+      }
+
+      // no cards in decklist yet.
+      this.deck.splice(0, 0, card);
    }
 
       /*
@@ -131,7 +147,7 @@ export class ArenaService {
       for (var i = 0; i < pack.length; i++) {
          this.pack[i] = pack[i]; // somehow a hard copy is needed to not trash observers of this.pack
       }
-      // TODO, I think it's because I'm using of() and subscribe improperly.
+      // I think it's because I'm using of() and subscribe improperly.
 
       let deck:Card[] = this.copyCards(player.deck);
 

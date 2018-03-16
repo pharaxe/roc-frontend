@@ -95,10 +95,8 @@ export class ArenaService {
    }
 
    addPickToDecklist(card) {
-      console.log("Card", card.getAdjustedCmc());
       for (var i = this.deck.length - 1; i >= 0; i--) {
          let spot:Card = this.deck[i];
-         console.log("spot", spot.getAdjustedCmc());
 
          if (card.getAdjustedCmc() >= spot.getAdjustedCmc()) {
             this.deck.splice(i + 1, 0, card);

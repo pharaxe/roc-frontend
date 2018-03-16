@@ -133,7 +133,9 @@ export class ArenaService {
       }
       // TODO, I think it's because I'm using of() and subscribe improperly.
 
-      let deck:Card[] = this.copyCards(player.picks.cards);
+      let deck:Card[] = this.copyCards(player.deck);
+
+      console.log(player.deck);
 
       for (var i = 0; i < deck.length; i++) {
          this.deck[i] = deck[i];

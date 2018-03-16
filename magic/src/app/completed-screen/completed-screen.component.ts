@@ -23,7 +23,7 @@ import {
             opacity: '1',
          })),
          transition('inactive => active', animate('500ms ease-in')),
-      ])
+      ]),
       trigger('slideIn', [
          state('in', style({
             transform: 'translate3d(0,-100%,0)',

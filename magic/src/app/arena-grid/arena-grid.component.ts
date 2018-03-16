@@ -24,6 +24,7 @@ export class ArenaGridComponent implements OnInit {
    private status: string = 'setup'; // setup, running, completed
    private locationSubscription: ISubscription;
    private paramSubscription: Subscription;
+   private finalizeDecklist = false;
    private deck: Card[];
 
    constructor(
@@ -46,6 +47,8 @@ export class ArenaGridComponent implements OnInit {
          this.status = draft.status;
          this.draft = draft;
          console.log(this.draft.guild);
+
+         this.finalizeDecklist = (this.draft.status == "completed");
       });
 
       this.ArenaService.getDeck().subscribe((deck) => {

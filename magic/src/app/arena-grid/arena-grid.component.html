@@ -26,12 +26,14 @@
          <div class="decklist-header">
             Decklist
          </div>
-         <div #scrollMe class="decklist">
+         <div #scrollMe class="decklist" [class.decklist-completed]="finalizeDecklist">
             <app-decklist></app-decklist>
          </div>
          <div class="decklist-count">
             <app-decklist-count></app-decklist-count>
          </div>
+
+         <div class="decklist-footer"> </div>
       </div>
    </div>
    <div class="footer">

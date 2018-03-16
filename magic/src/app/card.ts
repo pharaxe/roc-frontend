@@ -31,4 +31,13 @@ export class Card {
          this.mana_symbols = manas.split(",");
       } 
    }
+
+   getAdjustedCmc() {
+      let adjusted_cmc = this.cmc;
+
+      if (this.cmc != 0 && this.mana_cost.indexOf('X') != -1) { // nonartifact X spells sort high
+         adjusted_cmc += 8;
+      }
+
+   }
 }

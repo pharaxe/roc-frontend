@@ -2,6 +2,7 @@ import { Input, Component, OnInit } from '@angular/core';
 import { Color } from '../color';
 import { Observable } from "rxjs/Observable";
 import { of } from 'rxjs/observable/of';
+import { GuildChoiceDirective} from '../guid-choice/guild-choice.directive';
 
 @Component({
   selector: 'app-guild-icon-description',

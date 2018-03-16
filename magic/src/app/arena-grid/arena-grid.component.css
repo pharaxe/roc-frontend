@@ -50,7 +50,6 @@
    margin-left: auto;
    display: flex;
    flex-direction: column;
-   overflow: hidden;
    box-shadow: inset 0 0 1em rgba(85,85,85,.5);
 }
 
@@ -68,10 +67,22 @@
 }
 
 .decklist-count {
-   margin-top: auto;
    align-self: center;
    flex: 0;
 }
+
+.decklist-completed {
+   overflow: visible;
+   min-height: min-content;
+   flex-grow: 0;
+}
+
+/*
+.decklist-footer {
+   flex: 1;
+   display: block;
+}
+*/
 
 @media (max-width: 1000px) {
    .arena-body {

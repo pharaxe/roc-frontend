@@ -100,7 +100,7 @@ export class ArenaGridComponent implements OnInit {
    ngOnDestroy() {
       this.paramSubscription.unsubscribe();
       this.locationSubscription.unsubscribe();
-      this.hintRef.destroy();
+      //this.hintRef.destroy();
    }
 
    scrollToBottom(): void {

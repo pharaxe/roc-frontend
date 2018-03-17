@@ -23,7 +23,7 @@ export class ArenaService {
    draft: Draft;
    private draftSubject:Subject<Draft> = new Subject<Draft>();
    private guildSubject:Subject<Color[][]> = new Subject<Color[][]>();
-   public api_url = 'https://www.bensweedler.com/draft/web/app_dev.php/api'
+   public api_url = 'http://api.lightningdraft.online';
    public random_url = '/cards/random';
    public draft_url = '/drafts';
    public player_url = '/players';

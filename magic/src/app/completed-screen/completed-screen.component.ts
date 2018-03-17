@@ -37,10 +37,10 @@ import {
 })
 export class CompletedScreenComponent implements OnInit, AfterViewInit {
    @Input() public draft: Draft;
-   private fadeState = 'inactive';
-   private slideState = 'in';
+   public fadeState = 'inactive';
+   public slideState = 'in';
    private deck:Card[];
-   private survey_url: string = 
+   public survey_url: string = 
       "https://docs.google.com/forms/d/e/1FAIpQLSdk6W1uVcsTf6YU5GsqArmuPJ9vFlGs1CD4na7t6a8cqO21RQ/viewform?entry.1858318558=";
    private print_url: string = "http://www.mtgpress.net/build?url=";
 

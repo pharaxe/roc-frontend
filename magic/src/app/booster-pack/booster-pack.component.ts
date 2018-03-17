@@ -14,7 +14,7 @@ import {CardDetailComponent} from '../card-detail/card-detail.component';
   styleUrls: ['./booster-pack.component.css'],
 })
 export class BoosterPackComponent implements OnInit {
-   private pack: Card[];
+   public pack: Card[];
 
    constructor(
       private CardService: CardService,

@@ -28,7 +28,7 @@ export class HintComponent implements AfterViewInit {
    @Input() public options;
    @Input() public direction:string;
    @Input() public message: string;
-   private fadeState: string = 'out';
+   public fadeState: string = 'out';
 
    constructor(
       private cdRef:ChangeDetectorRef,

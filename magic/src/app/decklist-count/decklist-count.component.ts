@@ -8,7 +8,7 @@ import {ArenaService} from '../arena.service';
    styleUrls: ['./decklist-count.component.css']
 })
 export class DecklistCountComponent implements OnInit {
-   private deck: Card[];
+   public deck: Card[];
 
    constructor(  
 		private ArenaService: ArenaService,

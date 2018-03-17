@@ -14,7 +14,7 @@ import {GuildIconComponent} from '../guild-icon/guild-icon.component';
   styleUrls: ['./guild-choice.component.css'],
 })
 export class GuildChoiceComponent implements OnInit {
-   private choices: Color[][];
+   public choices: Color[][];
 
    constructor(
       private ArenaService: ArenaService,

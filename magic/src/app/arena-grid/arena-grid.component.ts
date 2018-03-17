@@ -25,10 +25,10 @@ export class ArenaGridComponent implements OnInit {
    private draftid: number = 0;
    private playerid: number;
    private draft: Draft;
-   private status: string = 'setup'; // setup, running, completed
+   public status: string = 'setup'; // setup, running, completed
    private locationSubscription: ISubscription;
    private paramSubscription: Subscription;
-   private finalizeDecklist = false;
+   public finalizeDecklist = false;
    private deck: Card[];
    private hintRef: ComponentRef<HintComponent>;
 

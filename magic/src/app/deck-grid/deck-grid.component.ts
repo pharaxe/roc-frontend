@@ -21,7 +21,7 @@ export class DeckGridComponent implements OnInit {
       });
    }
 
-   private getDeck():Card[] {
+   public getDeck():Card[] {
       return this.deck.slice(2, this.deck.length);
    }
 }

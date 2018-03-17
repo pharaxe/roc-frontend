@@ -11,7 +11,7 @@ import {ManaCostComponent} from '../mana-cost/mana-cost.component';
   styleUrls: ['./decklist.component.css']
 })
 export class DecklistComponent implements OnInit {
-   private deck: Card[];
+   public deck: Card[];
 
    constructor(  
 		private ArenaService: ArenaService,

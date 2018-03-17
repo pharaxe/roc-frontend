@@ -161,7 +161,7 @@ export class ArenaService {
       // add basic lands to deck.
       console.log(basic_lands);
       for (var i = newDraft.guild.length - 1; i >= 0; i--) {
-         deck.splice(0, 0, basic_lands[newDraft.guild[i].name);
+         deck.splice(0, 0, basic_lands[newDraft.guild[i].name]);
       }
 
       // copy deck over

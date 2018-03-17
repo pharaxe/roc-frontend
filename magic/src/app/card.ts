@@ -52,12 +52,12 @@ export const basic_lands = {
       'mana_cost': ''}),
    'blue': new Card({
       'cmc': -1,
-      'name': '8 Islands'
+      'name': '8 Islands',
       'url': 'https://bensweedler.com/art/island.jpg',
       'mana_cost': ''}),
    'black': new Card({
       'cmc': -1,
-      'name': '8 Swamps'
+      'name': '8 Swamps',
       'url': 'https://bensweedler.com/art/swamp.jpg',
       'mana_cost': ''}),
    'red': new Card({

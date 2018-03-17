@@ -42,3 +42,32 @@ export class Card {
       return adjusted_cmc;
    }
 }
+
+// TODO put this in a service, global variables are bad
+export const basic_lands = {
+   'white': new Card({
+      'cmc': -1,
+      'name': '8 Plains',
+      'url': 'https://bensweedler.com/art/plains.jpg',
+      'mana_cost': ''}),
+   'blue': new Card({
+      'cmc': -1,
+      'name': '8 Islands'
+      'url': 'https://bensweedler.com/art/island.jpg',
+      'mana_cost': ''}),
+   'black': new Card({
+      'cmc': -1,
+      'name': '8 Swamps'
+      'url': 'https://bensweedler.com/art/swamp.jpg',
+      'mana_cost': ''}),
+   'red': new Card({
+      'cmc': -1,
+      'name': '8 Mountains',
+      'url': 'https://bensweedler.com/art/mountain.jpg',
+      'mana_cost': ''}),
+   'green': new Card({
+      'cmc': -1,
+      'name': '8 Forests',
+      'url': 'https://bensweedler.com/art/forest.jpg',
+      'mana_cost': ''}),
+}

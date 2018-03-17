@@ -20,4 +20,8 @@ export class DeckGridComponent implements OnInit {
          this.deck = deck;
       });
    }
+
+   private getDeck():Card[] {
+      return this.deck.slice(2, this.deck.length);
+   }
 }

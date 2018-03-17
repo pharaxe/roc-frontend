@@ -4,6 +4,9 @@ import {Router, ActivatedRoute } from '@angular/router';
 import { Observable } from "rxjs/Observable";
 import { ISubscription, Subscription } from "rxjs/Subscription";
 
+import {ViewContainerRef, ComponentRef,ComponentFactoryResolver} from  '@angular/core';
+import {HintComponent} from '../hint/hint.component';
+
 import {ArenaService} from '../arena.service';
 import {Draft} from '../draft';
 import {Color} from '../color';
@@ -18,6 +21,7 @@ import { Location, LocationStrategy, PathLocationStrategy } from '@angular/commo
 })
 export class ArenaGridComponent implements OnInit {
    @ViewChild('scrollMe') private myScroll: ElementRef;
+   @ViewChild('guildHint', {read: ViewContainerRef} ) private guildHintContainer: ViewContainerRef;
    private draftid: number = 0;
    private playerid: number;
    private draft: Draft;
@@ -26,12 +30,15 @@ export class ArenaGridComponent implements OnInit {
    private paramSubscription: Subscription;
    private finalizeDecklist = false;
    private deck: Card[];
+   private hintRef: ComponentRef<HintComponent>;
 
    constructor(
       private route: ActivatedRoute,
       private router: Router,
       private location: Location,
-      private ArenaService: ArenaService
+      private ArenaService: ArenaService,
+      private componentFactoryResolver: ComponentFactoryResolver,
+      private viewContainerRef: ViewContainerRef
    ) { 
    }
 
@@ -46,7 +53,6 @@ export class ArenaGridComponent implements OnInit {
          this.playerid = draft.playerid;
          this.status = draft.status;
          this.draft = draft;
-         console.log(this.draft.guild);
 
          this.finalizeDecklist = (this.draft.status == "completed");
       });
@@ -62,6 +68,7 @@ export class ArenaGridComponent implements OnInit {
             this.ArenaService.fetchDraft(+id);
          } else {
             this.ArenaService.fetchGuildChoices();
+
          }
       });
 
@@ -78,11 +85,22 @@ export class ArenaGridComponent implements OnInit {
 
    ngAfterViewChecked() {
       this.scrollToBottom();
+
+      /*
+      if (!this.hintRef) {
+         const factory = 
+          this.componentFactoryResolver.resolveComponentFactory(HintComponent);
+         this.hintRef = this.guildHintContainer.createComponent(factory);
+         this.hintRef.instance.message = "here";
+         this.hintRef.changeDetectorRef.detectChanges();
+      }
+      */
    }
 
    ngOnDestroy() {
       this.paramSubscription.unsubscribe();
       this.locationSubscription.unsubscribe();
+      this.hintRef.destroy();
    }
 
    scrollToBottom(): void {

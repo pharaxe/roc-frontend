@@ -32,6 +32,7 @@ import { DecklistCountComponent } from './decklist-count/decklist-count.componen
 import { CompletedScreenComponent } from './completed-screen/completed-screen.component';
 import { DeckGridComponent } from './deck-grid/deck-grid.component';
 import { GuildIconDescriptionComponent } from './guild-icon-description/guild-icon-description.component';
+import { HintComponent } from './hint/hint.component';
 
 @NgModule({
    declarations: [
@@ -53,8 +54,10 @@ import { GuildIconDescriptionComponent } from './guild-icon-description/guild-ic
       DecklistCountComponent,
       CompletedScreenComponent,
       DeckGridComponent,
-      GuildIconDescriptionComponent
+      GuildIconDescriptionComponent,
+      HintComponent
    ],
+   entryComponents: [HintComponent],
    imports: [
       BrowserModule,
       BrowserAnimationsModule,

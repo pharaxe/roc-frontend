@@ -5,6 +5,7 @@
    <div class="arena-body">
       <div class="arena-content">
          <div *ngIf="status=='setup'">
+            <div #guildHint> </div>
             <app-guild-choice></app-guild-choice>
          </div>
          <div *ngIf="status=='running'">

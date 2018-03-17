@@ -4,7 +4,7 @@ import 'rxjs/add/operator/map';
 import { Type } from "@angular/core";
 import { Subject } from 'rxjs/Subject';
 
-import { Card } from './card';
+import { Card, basic_lands } from './card';
 import { Draft } from './draft';
 import { Color } from './color';
 
@@ -149,11 +149,6 @@ export class ArenaService {
 
       let deck:Card[] = this.copyCards(player.deck);
 
-      console.log(player.deck);
-
-      for (var i = 0; i < deck.length; i++) {
-         this.deck[i] = deck[i];
-      }
 
       let colors = [];
       for (var x = 0; x < player.colors.length; x++) {
@@ -162,6 +157,17 @@ export class ArenaService {
          colors[x] = color;
       }
       newDraft.guild = colors;
+
+      // add basic lands to deck.
+      console.log(basic_lands);
+      for (var i = newDraft.guild.length - 1; i >= 0; i--) {
+         deck.splice(0, 0, basic_lands[newDraft.guild[i].name);
+      }
+
+      // copy deck over
+      for (var i = 0; i < deck.length; i++) {
+         this.deck[i] = deck[i];
+      }
 
       this.draft = newDraft;
       this.announceDraft();

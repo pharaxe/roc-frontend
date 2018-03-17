@@ -59,8 +59,8 @@
 }
 
 .decklist {
-   //overflow-x: hidden;
-   //overflow-y: auto;
+   overflow-x: hidden;
+   overflow-y: auto;
    height: 1px;  // weird but works in tandem with flex and min-height
    min-height: min-content;
    flex: 1;
